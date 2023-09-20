@@ -4,6 +4,9 @@
         "firstwindow.h": "c",
         "secondwindow.h": "c",
         "lvgl.h": "c",
-        "enum.h": "c"
+        "enum.h": "c",
+        "windowsmanager.h": "c",
+        "*.tcc": "c",
+        "fstream": "c"
     }
 }

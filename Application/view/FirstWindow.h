@@ -3,11 +3,15 @@
 
 #include "../enum/enum.h"
 #include "../LVGL.Simulator/lvgl/lvgl.h"
+#include "../interface/WindowsController.h"
 
 typedef struct FirstWindow {
+    windows_controller_t controller;
     on_off_t hasInited;
     lv_obj_t* container;
-    lv_label_t* label;
+    lv_style_t style;
+    lv_obj_t* label;
+    char* name;
     void (*setLabelText)(const char* text);
 } first_window_t;
 
