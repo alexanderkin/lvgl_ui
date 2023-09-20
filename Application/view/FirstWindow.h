@@ -3,10 +3,10 @@
 
 #include "../enum/enum.h"
 #include "../LVGL.Simulator/lvgl/lvgl.h"
-#include "../interface/WindowsController.h"
+#include "../interface/WindowController.h"
 
 typedef struct FirstWindow {
-    windows_controller_t controller;
+    window_controller_t controller;
     on_off_t hasInited;
     lv_obj_t* container;
     lv_style_t style;

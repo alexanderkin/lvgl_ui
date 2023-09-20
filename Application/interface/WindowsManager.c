@@ -4,6 +4,7 @@ static windows_manager_t wm;
 
 static void showWindow(windows_t w) {
     if (wm.windows_stack[w] == NULL) return;
+    wm.activedWindow = w;
     lv_obj_clear_flag(wm.windows_stack[w]->getContainer(), LV_OBJ_FLAG_HIDDEN);
 }
 
@@ -12,7 +13,7 @@ static void hideWindow(windows_t w) {
     lv_obj_add_flag(wm.windows_stack[w]->getContainer(), LV_OBJ_FLAG_HIDDEN);
 }
 
-static void registerWindow(windows_controller_t* window, windows_t w) {
+static void registerWindow(window_controller_t* window, windows_t w) {
     wm.windows_stack[w] = window;
     if (wm.hasShow == OFF) {
         showWindow(w);
@@ -22,8 +23,12 @@ static void registerWindow(windows_controller_t* window, windows_t w) {
     }
 }
 
-static windows_controller_t* getWindowsController(windows_t w) {
+static window_controller_t* getWindowController(windows_t w) {
     return wm.windows_stack[w];
+}
+
+static void* getActivedWindow() {
+    return (void*)wm.windows_stack[wm.activedWindow]; 
 }
 
 static void* getWindow(windows_t w) {
@@ -36,10 +41,12 @@ windows_manager_t* getWindowsManager() {
 
 void initWindowsManager() {
     memset(wm.windows_stack, 0, sizeof(wm.windows_stack));
+    wm.activedWindow = EndWindow;
     wm.hasShow = OFF;
     wm.show = showWindow;
     wm.hide = hideWindow;
-    wm.registerWindows = registerWindow;
-    wm.getWindowsController = getWindowsController;
+    wm.registerWindow = registerWindow;
+    wm.getWindowController = getWindowController;
     wm.getWindow = getWindow;
+    wm.getActivedWindow = getActivedWindow;
 }

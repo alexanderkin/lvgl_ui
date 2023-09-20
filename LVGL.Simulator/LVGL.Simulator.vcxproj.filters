@@ -714,7 +714,7 @@
     <ClInclude Include="..\Application\view\SecondWindow.h">
       <Filter>Application\view</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\interface\WindowsController.h">
+    <ClInclude Include="..\Application\interface\WindowController.h">
       <Filter>Application\interface</Filter>
     </ClInclude>
   </ItemGroup>
