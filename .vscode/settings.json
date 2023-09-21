@@ -5,6 +5,8 @@
         "lvgl.h": "c",
         "firstwindow.h": "c",
         "keyboard.h": "c",
-        "secondwindow.h": "c"
+        "secondwindow.h": "c",
+        "eventsmanager.h": "c",
+        "enum.h": "c"
     }
 }

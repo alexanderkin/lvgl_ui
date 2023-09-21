@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include "./KeyBoard.h"
 #include "../manager/WindowsManager.h"
 
@@ -9,6 +9,17 @@ key_board_t kb;
 static const char* key_map[] = {
     "First", "Second", "Third", ""
 };
+
+static void event_handler(lv_event_t * e) {
+    lv_obj_t* obj = lv_event_get_target(e);
+    if (e->code == LV_EVENT_CLICKED) {
+        key_event_t event = {
+            .data = { KeyEvent },
+            .type = lv_btnmatrix_get_selected_btn(obj),
+        };
+        getEventsManager()->postEvent(&event.data);
+    }
+}
 
 void initKeyBoard(lv_obj_t* parent) {
     lv_style_init(&kb.style);
@@ -37,5 +48,6 @@ void initKeyBoard(lv_obj_t* parent) {
     lv_btnmatrix_set_map(kb.key_matrix, key_map);
     lv_btnmatrix_set_one_checked(kb.key_matrix, true);
     lv_obj_set_grid_cell(kb.key_matrix, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 0, 1);
+    lv_obj_add_event_cb(kb.key_matrix, event_handler, LV_EVENT_CLICKED, NULL);
     // lv_obj_add_flag(kb.container, LV_OBJ_FLAG_HIDDEN);
 }

@@ -720,6 +720,12 @@
     <ClInclude Include="..\Application\view\KeyBoard.h">
       <Filter>Application\view</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\manager\EventsManager.h">
+      <Filter>Application\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\struct.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2085,6 +2091,9 @@
     </ClCompile>
     <ClCompile Include="..\Application\view\KeyBoard.c">
       <Filter>Application\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\manager\EventsManager.c">
+      <Filter>Application\manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
