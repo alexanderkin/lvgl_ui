@@ -41,7 +41,7 @@ bool single_display_mode_initialization()
         GetModuleHandleW(NULL),
         SW_SHOW,
         800,
-        480,
+        800,
         LoadIconW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_LVGL))))
     {
         return false;

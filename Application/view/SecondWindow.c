@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #include "./SecondWindow.h"
-#include "../interface/WindowsManager.h"
+#include "../manager/WindowsManager.h"
 
 static second_window_t sw;
 
@@ -21,6 +21,8 @@ static lv_obj_t* getContainer() {
 void initSecondWindow(lv_obj_t* parent) {
     lv_style_init(&sw.style);
     lv_style_set_bg_color(&sw.style, lv_color_white());
+    lv_style_set_border_width(&sw.style, 0);
+    lv_style_set_radius(&sw.style, 0);
 
     sw.controller.getContainer = getContainer;
     sw.controller.getWindowName = getWindowName;

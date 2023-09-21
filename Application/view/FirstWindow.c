@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #include "./FirstWindow.h"
-#include "../interface/WindowsManager.h"
+#include "../manager/WindowsManager.h"
 
 static first_window_t fw;
 
@@ -21,6 +21,8 @@ static lv_obj_t* getContainer() {
 void initFirstWindow(lv_obj_t* parent) {
     lv_style_init(&fw.style);
     lv_style_set_bg_color(&fw.style, lv_color_white());
+    lv_style_set_border_width(&fw.style, 0);
+    lv_style_set_radius(&fw.style, 0);
 
     fw.controller.getContainer = getContainer;
     fw.controller.getWindowName = getWindowName;

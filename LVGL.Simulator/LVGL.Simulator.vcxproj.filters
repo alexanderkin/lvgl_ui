@@ -702,12 +702,6 @@
     <ClInclude Include="..\Application\Application.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\enum\enum.h">
-      <Filter>Application\enum</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Application\interface\WindowsManager.h">
-      <Filter>Application\interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\Application\view\FirstWindow.h">
       <Filter>Application\view</Filter>
     </ClInclude>
@@ -716,6 +710,15 @@
     </ClInclude>
     <ClInclude Include="..\Application\interface\WindowController.h">
       <Filter>Application\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\enum.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\manager\WindowsManager.h">
+      <Filter>Application\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\view\KeyBoard.h">
+      <Filter>Application\view</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2071,13 +2074,16 @@
     <ClCompile Include="..\Application\Application.c">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="..\Application\interface\WindowsManager.c">
-      <Filter>Application\interface</Filter>
-    </ClCompile>
     <ClCompile Include="..\Application\view\FirstWindow.c">
       <Filter>Application\view</Filter>
     </ClCompile>
     <ClCompile Include="..\Application\view\SecondWindow.c">
+      <Filter>Application\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\manager\WindowsManager.c">
+      <Filter>Application\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\view\KeyBoard.c">
       <Filter>Application\view</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6978,12 +6984,6 @@
     <Filter Include="Application">
       <UniqueIdentifier>{6fc13621-7bf0-489d-8fec-e796ce5e0757}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Application\enum">
-      <UniqueIdentifier>{1aaf3272-46d9-4c70-ad72-3186529bd60b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application\interface">
-      <UniqueIdentifier>{ea30c8a7-46d7-498c-951f-e7179a12e888}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Application\model">
       <UniqueIdentifier>{f144ba38-2b19-475b-b440-25eb67954761}</UniqueIdentifier>
     </Filter>
@@ -6992,6 +6992,12 @@
     </Filter>
     <Filter Include="Application\presenter">
       <UniqueIdentifier>{eca4ce68-d42c-4e6d-8bf6-9940c95d8ff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\manager">
+      <UniqueIdentifier>{1aaf3272-46d9-4c70-ad72-3186529bd60b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\interface">
+      <UniqueIdentifier>{ea30c8a7-46d7-498c-951f-e7179a12e888}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

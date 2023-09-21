@@ -1,7 +1,7 @@
-#ifndef WINDOWCONTROLLER_H
+﻿#ifndef WINDOWCONTROLLER_H
 #define WINDOWCONTROLLER_H
 
-#include "../LVGL.Simulator/lvgl/lvgl.h"
+#include "../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct WindowController {
     lv_obj_t* (*getContainer)();

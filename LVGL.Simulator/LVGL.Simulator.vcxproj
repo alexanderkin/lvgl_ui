@@ -260,10 +260,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lv_drivers\win32drv\win32drv.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lv_drivers\win_drv.h" />
     <ClInclude Include="..\Application\Application.h" />
-    <ClInclude Include="..\Application\enum\enum.h" />
+    <ClInclude Include="..\Application\interface\enum.h" />
     <ClInclude Include="..\Application\interface\WindowController.h" />
-    <ClInclude Include="..\Application\interface\WindowsManager.h" />
+    <ClInclude Include="..\Application\manager\WindowsManager.h" />
     <ClInclude Include="..\Application\view\FirstWindow.h" />
+    <ClInclude Include="..\Application\view\KeyBoard.h" />
     <ClInclude Include="..\Application\view\SecondWindow.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
@@ -726,8 +727,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lv_drivers\win32drv\win32drv.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lv_drivers\win_drv.c" />
     <ClCompile Include="..\Application\Application.c" />
-    <ClCompile Include="..\Application\interface\WindowsManager.c" />
+    <ClCompile Include="..\Application\manager\WindowsManager.c" />
     <ClCompile Include="..\Application\view\FirstWindow.c" />
+    <ClCompile Include="..\Application\view\KeyBoard.c" />
     <ClCompile Include="..\Application\view\SecondWindow.c" />
     <ClCompile Include="LVGL.Simulator.cpp" />
   </ItemGroup>

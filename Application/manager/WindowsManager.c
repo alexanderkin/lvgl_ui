@@ -1,4 +1,5 @@
-﻿#include "./WindowsManager.h"
+﻿#include <stdio.h>
+#include "./WindowsManager.h"
 
 static windows_manager_t wm;
 
@@ -27,8 +28,8 @@ static window_controller_t* getWindowController(windows_t w) {
     return wm.windows_stack[w];
 }
 
-static void* getActivedWindow() {
-    return (void*)wm.windows_stack[wm.activedWindow]; 
+static windows_t getActivedWindow() {
+    return wm.activedWindow; 
 }
 
 static void* getWindow(windows_t w) {

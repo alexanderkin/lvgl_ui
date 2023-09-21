@@ -1,13 +1,10 @@
 {
     "files.associations": {
-        "application.h": "c",
-        "firstwindow.h": "c",
-        "secondwindow.h": "c",
-        "lvgl.h": "c",
-        "enum.h": "c",
+        "windowcontroller.h": "c",
         "windowsmanager.h": "c",
-        "*.tcc": "c",
-        "fstream": "c",
-        "windowcontroller.h": "c"
+        "lvgl.h": "c",
+        "firstwindow.h": "c",
+        "keyboard.h": "c",
+        "secondwindow.h": "c"
     }
 }
