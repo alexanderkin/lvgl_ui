@@ -726,6 +726,18 @@
     <ClInclude Include="..\Application\interface\struct.h">
       <Filter>Application\interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\view\ThirdWindow.h">
+      <Filter>Application\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\presenter\FirstPresenter.h">
+      <Filter>Application\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\presenter\SecondPresenter.h">
+      <Filter>Application\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\presenter\ThirdPresenter.h">
+      <Filter>Application\presenter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2094,6 +2106,18 @@
     </ClCompile>
     <ClCompile Include="..\Application\manager\EventsManager.c">
       <Filter>Application\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\view\ThirdWindow.c">
+      <Filter>Application\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\presenter\FirstPresenter.c">
+      <Filter>Application\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\presenter\SecondPresenter.c">
+      <Filter>Application\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\presenter\ThirdPresenter.c">
+      <Filter>Application\presenter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

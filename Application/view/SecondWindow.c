@@ -37,6 +37,6 @@ void initSecondWindow(lv_obj_t* parent) {
 
     sw.label = lv_label_create(sw.container);
     sw.setLabelText = setLabelText;
-    setLabelText("SecondWindow");
+    setLabelText(sw.name);
     getWindowsManager()->registerWindow(&sw.controller, SecondWindow);
 }

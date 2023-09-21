@@ -6,7 +6,7 @@
 #include "../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct EventsManager {
-    void (*postEvent)(event_data_t* data);
+    void (*postEvent)(i_event_type_t* i_event);
 } events_manager_t;
 
 void initEventsManager();

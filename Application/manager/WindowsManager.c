@@ -14,6 +14,13 @@ static void hideWindow(windows_t w) {
     lv_obj_add_flag(wm.windows_stack[w]->getContainer(), LV_OBJ_FLAG_HIDDEN);
 }
 
+static void switchActivedWindow(windows_t w) {
+    if (wm.windows_stack[w] == NULL) return;
+    printf("switch from %d to %d\n", wm.activedWindow, w);
+    hideWindow(wm.activedWindow);
+    showWindow(w);
+}
+
 static void registerWindow(window_controller_t* window, windows_t w) {
     wm.windows_stack[w] = window;
     if (wm.hasShow == OFF) {
@@ -44,9 +51,8 @@ void initWindowsManager() {
     memset(wm.windows_stack, 0, sizeof(wm.windows_stack));
     wm.activedWindow = EndWindow;
     wm.hasShow = OFF;
-    wm.show = showWindow;
-    wm.hide = hideWindow;
     wm.registerWindow = registerWindow;
+    wm.switchActivedWindow = switchActivedWindow;
     wm.getWindowController = getWindowController;
     wm.getWindow = getWindow;
     wm.getActivedWindow = getActivedWindow;

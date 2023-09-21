@@ -37,6 +37,6 @@ void initFirstWindow(lv_obj_t* parent) {
     
     fw.label = lv_label_create(fw.container);
     fw.setLabelText = setLabelText;
-    setLabelText("FirstWindow");
+    setLabelText(fw.name);
     getWindowsManager()->registerWindow(&fw.controller, FirstWindow);
 }

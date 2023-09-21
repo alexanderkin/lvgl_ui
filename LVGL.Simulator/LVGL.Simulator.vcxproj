@@ -265,9 +265,13 @@
     <ClInclude Include="..\Application\interface\WindowController.h" />
     <ClInclude Include="..\Application\manager\EventsManager.h" />
     <ClInclude Include="..\Application\manager\WindowsManager.h" />
+    <ClInclude Include="..\Application\presenter\FirstPresenter.h" />
+    <ClInclude Include="..\Application\presenter\SecondPresenter.h" />
+    <ClInclude Include="..\Application\presenter\ThirdPresenter.h" />
     <ClInclude Include="..\Application\view\FirstWindow.h" />
     <ClInclude Include="..\Application\view\KeyBoard.h" />
     <ClInclude Include="..\Application\view\SecondWindow.h" />
+    <ClInclude Include="..\Application\view\ThirdWindow.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
   <ItemGroup>
@@ -731,9 +735,13 @@
     <ClCompile Include="..\Application\Application.c" />
     <ClCompile Include="..\Application\manager\EventsManager.c" />
     <ClCompile Include="..\Application\manager\WindowsManager.c" />
+    <ClCompile Include="..\Application\presenter\FirstPresenter.c" />
+    <ClCompile Include="..\Application\presenter\SecondPresenter.c" />
+    <ClCompile Include="..\Application\presenter\ThirdPresenter.c" />
     <ClCompile Include="..\Application\view\FirstWindow.c" />
     <ClCompile Include="..\Application\view\KeyBoard.c" />
     <ClCompile Include="..\Application\view\SecondWindow.c" />
+    <ClCompile Include="..\Application\view\ThirdWindow.c" />
     <ClCompile Include="LVGL.Simulator.cpp" />
   </ItemGroup>
   <ItemGroup>

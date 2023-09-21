@@ -14,10 +14,10 @@ static void event_handler(lv_event_t * e) {
     lv_obj_t* obj = lv_event_get_target(e);
     if (e->code == LV_EVENT_CLICKED) {
         key_event_t event = {
-            .data = { KeyEvent },
-            .type = lv_btnmatrix_get_selected_btn(obj),
+            .i_event = { KeyEvent },
+            .key = lv_btnmatrix_get_selected_btn(obj),
         };
-        getEventsManager()->postEvent(&event.data);
+        getEventsManager()->postEvent(&event.i_event);
     }
 }
 

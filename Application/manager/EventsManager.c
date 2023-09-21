@@ -1,12 +1,26 @@
 ﻿#include <stdio.h>
 #include "./EventsManager.h"
+#include "./WindowsManager.h"
+#include "../presenter/FirstPresenter.h"
+#include "../presenter/SecondPresenter.h"
+#include "../presenter/ThirdPresenter.h"
 
 static events_manager_t em;
 
-static void postEvent(event_data_t* data) {
-    if (data->type == KeyEvent) {
-        key_event_t* e = (key_event_t*)data;
-        printf("data = %d, keyid = %d\n", e->data.type, e->type);
+static void postEvent(i_event_type_t* i_event) {
+    switch (getWindowsManager()->getActivedWindow())
+    {
+    case FirstWindow:
+        getFirstPresenter()->subscribe(i_event);
+        break;
+    case SecondWindow:
+        getSecondPresenter()->subscribe(i_event);
+        break;
+    case ThirdWindow:
+        getThirdPresenter()->subscribe(i_event);
+        break;
+    default:
+        break;
     }
 }
 
