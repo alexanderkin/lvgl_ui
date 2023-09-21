@@ -3,13 +3,13 @@
 
 #include "../interface/struct.h"
 #include "../view/ThirdWindow.h"
+#include "../interface/EventController.h"
 
 typedef struct ThirdPresenter {
+    event_controller_t controller;
     third_window_t* window;
-    void (*subscribe)(i_event_type_t* i_event);
 } third_presenter_t;
 
-third_presenter_t* getThirdPresenter();
 void initThirdPresenter(third_window_t* window);
 
 #endif // THIRDPRESENTER_H

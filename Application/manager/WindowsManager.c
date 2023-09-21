@@ -16,13 +16,12 @@ static void hideWindow(windows_t w) {
 
 static void switchActivedWindow(windows_t w) {
     if (wm.windows_stack[w] == NULL) return;
-    printf("switch from %d to %d\n", wm.activedWindow, w);
     hideWindow(wm.activedWindow);
     showWindow(w);
 }
 
-static void registerWindow(window_controller_t* window, windows_t w) {
-    wm.windows_stack[w] = window;
+static void registerWindow(window_controller_t* controller, windows_t w) {
+    wm.windows_stack[w] = controller;
     if (wm.hasShow == OFF) {
         showWindow(w);
         wm.hasShow = ON;

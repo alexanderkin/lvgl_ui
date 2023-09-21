@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include "./SecondPresenter.h"
+#include "../interface/enum.h"
+#include "../manager/EventsManager.h"
 #include "../manager/WindowsManager.h"
 
 static second_presenter_t sp;
 
 static void handleKeyEvent(key_event_t* event) {
-    printf("second presenter event type = %d, key id = %d\n", event->i_event.type, event->key);
     switch (event->key)
     {
     case KeyFirst:
         getWindowsManager()->switchActivedWindow(FirstWindow);
         break;
     case KeySecond:
-        getWindowsManager()->switchActivedWindow(SecondWindow);
+        printf("already in second window\n");
         break;
     case KeyThird:
         getWindowsManager()->switchActivedWindow(ThirdWindow);
@@ -33,11 +34,8 @@ static void subscribe(i_event_type_t* i_event) {
     }
 }
 
-second_presenter_t* getSecondPresenter() {
-    return &sp;
-}
-
 void initSecondPresenter(second_window_t* window) {
     sp.window = window;
-    sp.subscribe = subscribe;
+    sp.controller.subscribe = subscribe;
+    getEventsManager()->registerEvent(&sp.controller, SecondWindow);
 }

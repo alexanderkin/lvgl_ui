@@ -14,6 +14,8 @@
         "firstpresenter.h": "c",
         "thirdpresenter.h": "c",
         "secondpresenter.h": "c",
-        "thirdwindow.h": "c"
+        "thirdwindow.h": "c",
+        "struct.h": "c",
+        "eventcontroller.h": "c"
     }
 }
