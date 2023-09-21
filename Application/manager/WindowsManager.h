@@ -7,16 +7,17 @@
 
 typedef struct WindowsManager {
     on_off_t hasShow;
+    windows_t mainWindow;
     windows_t activedWindow;
     window_controller_t* windows_stack[EndWindow];
-    void (*switchActivedWindow)(windows_t w);
-    void (*registerWindow)(window_controller_t* controller, windows_t w);
-    window_controller_t* (*getWindowController)(windows_t w);
     void* (*getWindow)(windows_t w);
+    void (*switchActivedWindow)(windows_t w);
+    window_controller_t* (*getWindowController)(windows_t w);
+    void (*registerWindow)(window_controller_t* controller, windows_t w, bool isMainWindow);
     windows_t (*getActivedWindow)();
 } windows_manager_t;
 
-void initWindowsManager();
 windows_manager_t* getWindowsManager();
+void initWindowsManager();
 
 #endif // WINDOWSMANAGER_H

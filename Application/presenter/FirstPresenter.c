@@ -9,9 +9,6 @@ static first_presenter_t fp;
 static void handleKeyEvent(key_event_t* event) {
     switch (event->key)
     {
-    case KeyFirst:
-        printf("already in first window\n");
-        break;
     case KeySecond:
         getWindowsManager()->switchActivedWindow(SecondWindow);
         break;

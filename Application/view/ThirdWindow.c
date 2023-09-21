@@ -38,5 +38,5 @@ void initThirdWindow(lv_obj_t* parent) {
     tw.label = lv_label_create(tw.container);
     tw.setLabelText = setLabelText;
     setLabelText(tw.name);
-    getWindowsManager()->registerWindow(&tw.controller, ThirdWindow);
+    getWindowsManager()->registerWindow(&tw.controller, ThirdWindow, false);
 }

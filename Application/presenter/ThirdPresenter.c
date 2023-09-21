@@ -10,13 +10,11 @@ static void handleKeyEvent(key_event_t* event) {
     switch (event->key)
     {
     case KeyFirst:
+    case KeyThird:
         getWindowsManager()->switchActivedWindow(FirstWindow);
         break;
     case KeySecond:
         getWindowsManager()->switchActivedWindow(SecondWindow);
-        break;
-    case KeyThird:
-        printf("already in third window\n");
         break;
     default:
         break;

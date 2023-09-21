@@ -20,8 +20,11 @@ static void switchActivedWindow(windows_t w) {
     showWindow(w);
 }
 
-static void registerWindow(window_controller_t* controller, windows_t w) {
+static void registerWindow(window_controller_t* controller, windows_t w, bool isMainWindow) {
     wm.windows_stack[w] = controller;
+    if (isMainWindow) {
+        wm.mainWindow = w;
+    }
     if (wm.hasShow == OFF) {
         showWindow(w);
         wm.hasShow = ON;
@@ -48,11 +51,12 @@ windows_manager_t* getWindowsManager() {
 
 void initWindowsManager() {
     memset(wm.windows_stack, 0, sizeof(wm.windows_stack));
-    wm.activedWindow = EndWindow;
     wm.hasShow = OFF;
+    wm.mainWindow = EndWindow;
+    wm.activedWindow = EndWindow;
+    wm.getWindow = getWindow;
     wm.registerWindow = registerWindow;
+    wm.getActivedWindow = getActivedWindow;
     wm.switchActivedWindow = switchActivedWindow;
     wm.getWindowController = getWindowController;
-    wm.getWindow = getWindow;
-    wm.getActivedWindow = getActivedWindow;
 }
