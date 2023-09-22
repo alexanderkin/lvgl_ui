@@ -10,6 +10,11 @@ typedef enum KeyTypeEnum {
     KeyFirst,
     KeySecond,
     KeyThird,
+    KeySelect1,
+    KeyLeft,
+    KeyRight,
+    KeyUp,
+    KeyDown,
     KeyEnd,
 } key_type_t;
 

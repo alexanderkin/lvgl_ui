@@ -7,7 +7,8 @@
 
 key_board_t kb;
 static const char* key_map[] = {
-    "First", "Second", "Third", ""
+    "First", "Second", "Third", "Select1", "Left", "Rigth", "\n", 
+    "Up", "Down", ""
 };
 
 static void event_handler(lv_event_t * e) {

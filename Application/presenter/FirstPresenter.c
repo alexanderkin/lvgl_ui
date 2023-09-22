@@ -15,6 +15,21 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyThird:
         getWindowsManager()->switchActivedWindow(ThirdWindow);
         break;
+    case KeySelect1:
+        fp.window->setLabelText("First KeySelect1");
+        break;
+    case KeyLeft:
+        fp.window->spinboxSelectLeft(fp.window->spinbox);
+        break;
+    case KeyRight:
+        fp.window->spinboxSelectRight(fp.window->spinbox);
+        break;
+    case KeyUp:
+        fp.window->spinboxSelectUp(fp.window->spinbox);
+        break;
+    case KeyDown:
+        fp.window->spinboxSelectDown(fp.window->spinbox);
+        break;
     default:
         break;
     }

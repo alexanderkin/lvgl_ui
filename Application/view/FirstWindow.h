@@ -11,6 +11,11 @@ typedef struct FirstWindow {
     lv_obj_t* container;
     lv_style_t style;
     lv_obj_t* label;
+    lv_obj_t* spinbox;
+    void (*spinboxSelectLeft)(lv_obj_t* spinbox);
+    void (*spinboxSelectRight)(lv_obj_t* spinbox);
+    void (*spinboxSelectUp)(lv_obj_t* spinbox);
+    void (*spinboxSelectDown)(lv_obj_t* spinbox);
     char* name;
     void (*setLabelText)(const char* text);
 } first_window_t;
