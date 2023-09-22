@@ -21,7 +21,7 @@ static void handleKeyEvent(key_event_t* event) {
     }
 }
 
-static void subscribe(i_event_type_t* i_event) {
+static void handleEvent(i_event_type_t* i_event) {
     switch (i_event->type)
     {
     case KeyEvent:
@@ -34,6 +34,6 @@ static void subscribe(i_event_type_t* i_event) {
 
 void initSecondPresenter(second_window_t* window) {
     sp.window = window;
-    sp.controller.subscribe = subscribe;
-    getEventsManager()->registerEvent(&sp.controller, SecondWindow);
+    sp.controller.handleEvent = handleEvent;
+    getEventsManager()->registerEventHandler(&sp.controller, SecondWindow);
 }

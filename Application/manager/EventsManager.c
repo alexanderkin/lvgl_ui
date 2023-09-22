@@ -6,12 +6,12 @@ static events_manager_t em;
 
 static void postEvent(i_event_type_t* i_event) {
     windows_t w = getWindowsManager()->getActivedWindow();
-    if (em.event_stack[w] == NULL) return;
-    em.event_stack[w]->subscribe(i_event);
+    if (em.handler_stack[w] == NULL) return;
+    em.handler_stack[w]->handleEvent(i_event);
 }
 
-static void registerEvent(event_controller_t* controller, windows_t w) {
-    em.event_stack[w] = controller;
+static void registerEventHandler(event_controller_t* controller, windows_t w) {
+    em.handler_stack[w] = controller;
 }
 
 events_manager_t* getEventsManager() {
@@ -20,5 +20,5 @@ events_manager_t* getEventsManager() {
 
 void initEventsManager() {
     em.postEvent = postEvent;
-    em.registerEvent = registerEvent;
+    em.registerEventHandler = registerEventHandler;
 }
