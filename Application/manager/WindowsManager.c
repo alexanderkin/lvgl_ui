@@ -6,11 +6,13 @@ static windows_manager_t wm;
 static void showWindow(windows_t w) {
     if (wm.windows_stack[w] == NULL) return;
     wm.activedWindow = w;
+    wm.windows_stack[w]->visable = ON;
     lv_obj_clear_flag(wm.windows_stack[w]->getContainer(), LV_OBJ_FLAG_HIDDEN);
 }
 
 static void hideWindow(windows_t w) {
     if (wm.windows_stack[w] == NULL) return;
+    wm.windows_stack[w]->visable = OFF;
     lv_obj_add_flag(wm.windows_stack[w]->getContainer(), LV_OBJ_FLAG_HIDDEN);
 }
 

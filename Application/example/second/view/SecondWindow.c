@@ -24,6 +24,7 @@ void initSecondWindow(lv_obj_t* parent) {
     lv_style_set_border_width(&sw.style, 0);
     lv_style_set_radius(&sw.style, 0);
 
+    sw.controller.visable = OFF;
     sw.controller.getContainer = getContainer;
     sw.controller.getWindowName = getWindowName;
 

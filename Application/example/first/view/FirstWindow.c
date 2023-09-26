@@ -40,6 +40,7 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_style_set_border_width(&fw.style, 0);
     lv_style_set_radius(&fw.style, 0);
 
+    fw.controller.visable = OFF;
     fw.controller.getContainer = getContainer;
     fw.controller.getWindowName = getWindowName;
 

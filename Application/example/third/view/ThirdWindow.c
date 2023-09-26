@@ -24,6 +24,7 @@ void initThirdWindow(lv_obj_t* parent) {
     lv_style_set_border_width(&tw.style, 0);
     lv_style_set_radius(&tw.style, 0);
 
+    tw.controller.visable = OFF;
     tw.controller.getContainer = getContainer;
     tw.controller.getWindowName = getWindowName;
 
