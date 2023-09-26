@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #include "./KeyBoard.h"
-#include "../manager/WindowsManager.h"
+#include "../../../manager/WindowsManager.h"
 
 #define KeyBoardWidth 800
 #define KeyBoardHeight 100

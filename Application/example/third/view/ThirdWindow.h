@@ -1,9 +1,9 @@
 #ifndef THIRDWINDOW_H
 #define THIRDWINDOW_H
 
-#include "../interface/enum.h"
-#include "../interface/WindowController.h"
-#include "../../LVGL.Simulator/lvgl/lvgl.h"
+#include "../../../generic/enum.h"
+#include "../../../interface/WindowController.h"
+#include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct ThirdWindow {
     window_controller_t controller;

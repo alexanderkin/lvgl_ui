@@ -1,9 +1,9 @@
 ﻿#ifndef FIRSTPRESENTER_H
 #define FIRSTPRESENTER_H
 
-#include "../interface/struct.h"
 #include "../view/FirstWindow.h"
-#include "../interface/EventController.h"
+#include "../../../generic/struct.h"
+#include "../../../interface/EventController.h"
 
 typedef struct FirstPresenter {
     event_controller_t controller;

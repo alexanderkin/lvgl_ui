@@ -1,7 +1,7 @@
 ﻿#ifndef WINDOWSMANAGER_H
 #define WINDOWSMANAGER_H
 
-#include "../interface/enum.h"
+#include "../generic/enum.h"
 #include "../interface/WindowController.h"
 #include "../../LVGL.Simulator/lvgl/lvgl.h"
 

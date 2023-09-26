@@ -1,9 +1,9 @@
 #ifndef SECONDPRESENTER_H
 #define SECONDPRESENTER_H
 
-#include "../interface/struct.h"
 #include "../view/SecondWindow.h"
-#include "../interface/EventController.h"
+#include "../../../generic/struct.h"
+#include "../../../interface/EventController.h"
 
 typedef struct SecondPresenter {
     event_controller_t controller;

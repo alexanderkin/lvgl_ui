@@ -702,41 +702,41 @@
     <ClInclude Include="..\Application\Application.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\view\FirstWindow.h">
-      <Filter>Application\view</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Application\view\SecondWindow.h">
-      <Filter>Application\view</Filter>
-    </ClInclude>
     <ClInclude Include="..\Application\interface\WindowController.h">
-      <Filter>Application\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Application\interface\enum.h">
       <Filter>Application\interface</Filter>
     </ClInclude>
     <ClInclude Include="..\Application\manager\WindowsManager.h">
       <Filter>Application\manager</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\view\KeyBoard.h">
-      <Filter>Application\view</Filter>
-    </ClInclude>
     <ClInclude Include="..\Application\manager\EventsManager.h">
       <Filter>Application\manager</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\interface\struct.h">
-      <Filter>Application\interface</Filter>
+    <ClInclude Include="..\Application\example\first\view\FirstWindow.h">
+      <Filter>Application\example\first\view</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\view\ThirdWindow.h">
-      <Filter>Application\view</Filter>
+    <ClInclude Include="..\Application\example\first\presenter\FirstPresenter.h">
+      <Filter>Application\example\first\presenter</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\presenter\FirstPresenter.h">
-      <Filter>Application\presenter</Filter>
+    <ClInclude Include="..\Application\example\keyboard\view\KeyBoard.h">
+      <Filter>Application\example\keyboard\view</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\presenter\SecondPresenter.h">
-      <Filter>Application\presenter</Filter>
+    <ClInclude Include="..\Application\example\third\view\ThirdWindow.h">
+      <Filter>Application\example\third\view</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\presenter\ThirdPresenter.h">
-      <Filter>Application\presenter</Filter>
+    <ClInclude Include="..\Application\example\third\presenter\ThirdPresenter.h">
+      <Filter>Application\example\third\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\second\view\SecondWindow.h">
+      <Filter>Application\example\second\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\second\presenter\SecondPresenter.h">
+      <Filter>Application\example\second\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\generic\enum.h">
+      <Filter>Application\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\generic\struct.h">
+      <Filter>Application\generic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2092,32 +2092,32 @@
     <ClCompile Include="..\Application\Application.c">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="..\Application\view\FirstWindow.c">
-      <Filter>Application\view</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Application\view\SecondWindow.c">
-      <Filter>Application\view</Filter>
-    </ClCompile>
     <ClCompile Include="..\Application\manager\WindowsManager.c">
       <Filter>Application\manager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Application\view\KeyBoard.c">
-      <Filter>Application\view</Filter>
     </ClCompile>
     <ClCompile Include="..\Application\manager\EventsManager.c">
       <Filter>Application\manager</Filter>
     </ClCompile>
-    <ClCompile Include="..\Application\view\ThirdWindow.c">
-      <Filter>Application\view</Filter>
+    <ClCompile Include="..\Application\example\first\view\FirstWindow.c">
+      <Filter>Application\example\first\view</Filter>
     </ClCompile>
-    <ClCompile Include="..\Application\presenter\FirstPresenter.c">
-      <Filter>Application\presenter</Filter>
+    <ClCompile Include="..\Application\example\first\presenter\FirstPresenter.c">
+      <Filter>Application\example\first\presenter</Filter>
     </ClCompile>
-    <ClCompile Include="..\Application\presenter\SecondPresenter.c">
-      <Filter>Application\presenter</Filter>
+    <ClCompile Include="..\Application\example\keyboard\view\KeyBoard.c">
+      <Filter>Application\example\keyboard\view</Filter>
     </ClCompile>
-    <ClCompile Include="..\Application\presenter\ThirdPresenter.c">
-      <Filter>Application\presenter</Filter>
+    <ClCompile Include="..\Application\example\third\view\ThirdWindow.c">
+      <Filter>Application\example\third\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\third\presenter\ThirdPresenter.c">
+      <Filter>Application\example\third\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\second\view\SecondWindow.c">
+      <Filter>Application\example\second\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\second\presenter\SecondPresenter.c">
+      <Filter>Application\example\second\presenter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -7017,20 +7017,50 @@
     <Filter Include="Application">
       <UniqueIdentifier>{6fc13621-7bf0-489d-8fec-e796ce5e0757}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Application\model">
-      <UniqueIdentifier>{f144ba38-2b19-475b-b440-25eb67954761}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application\view">
-      <UniqueIdentifier>{cd160e05-fa44-400d-86b2-d6bb73f2a4cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application\presenter">
-      <UniqueIdentifier>{eca4ce68-d42c-4e6d-8bf6-9940c95d8ff0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Application\manager">
       <UniqueIdentifier>{1aaf3272-46d9-4c70-ad72-3186529bd60b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\interface">
       <UniqueIdentifier>{ea30c8a7-46d7-498c-951f-e7179a12e888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example">
+      <UniqueIdentifier>{ff87308a-a26a-492f-a210-83faf3563c54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\first">
+      <UniqueIdentifier>{a3d65487-1d38-4a07-bdc3-7a328586cbed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\first\presenter">
+      <UniqueIdentifier>{bb69a64a-97e2-48cc-a14f-aa4e1fce07e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\first\view">
+      <UniqueIdentifier>{e3695264-8ff9-4bbe-a83e-2a4339ca22fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\second">
+      <UniqueIdentifier>{226c122a-ece2-4815-9b91-9abb2435fb7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\second\presenter">
+      <UniqueIdentifier>{69c2aabd-996e-439b-ba14-9fbc723d26ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\second\view">
+      <UniqueIdentifier>{8bfea091-69b4-40d0-8b85-b5e7d927aa27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\third">
+      <UniqueIdentifier>{a9d3dc55-3cfb-46d7-92a8-b7857485680c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\third\presenter">
+      <UniqueIdentifier>{c39e54c8-e06a-4c4c-a198-9684cd2c7bf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\third\view">
+      <UniqueIdentifier>{35fcd8bd-644e-4724-90f6-9e268a9952a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\keyboard">
+      <UniqueIdentifier>{5a049fc4-bd40-40cf-96a5-ac0b7953c07e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\keyboard\view">
+      <UniqueIdentifier>{a9856616-d488-45a5-be31-2cec9b6a49bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\generic">
+      <UniqueIdentifier>{67483f9c-59be-4aa1-a1aa-18ce84fee02c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

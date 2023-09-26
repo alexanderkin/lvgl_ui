@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "./ThirdWindow.h"
-#include "../manager/WindowsManager.h"
+#include "../../../manager/WindowsManager.h"
 
 static third_window_t tw;
 

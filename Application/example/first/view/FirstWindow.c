@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #include "./FirstWindow.h"
-#include "../manager/WindowsManager.h"
+#include "../../../manager/WindowsManager.h"
 
 static first_window_t fw;
 

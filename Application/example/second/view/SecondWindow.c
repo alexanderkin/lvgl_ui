@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #include "./SecondWindow.h"
-#include "../manager/WindowsManager.h"
+#include "../../../manager/WindowsManager.h"
 
 static second_window_t sw;
 

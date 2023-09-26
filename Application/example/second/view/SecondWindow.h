@@ -1,9 +1,9 @@
 ﻿#ifndef SECONDWINDOW_H
 #define SECONDWINDOW_H
 
-#include "../interface/enum.h"
-#include "../interface/WindowController.h"
-#include "../../LVGL.Simulator/lvgl/lvgl.h"
+#include "../../../generic/enum.h"
+#include "../../../interface/WindowController.h"
+#include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct SecondWindow {
     window_controller_t controller;

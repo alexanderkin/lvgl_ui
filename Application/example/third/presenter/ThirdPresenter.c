@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "./ThirdPresenter.h"
-#include "../interface/enum.h"
-#include "../manager/EventsManager.h"
-#include "../manager/WindowsManager.h"
+#include "../../../generic/enum.h"
+#include "../../../manager/EventsManager.h"
+#include "../../../manager/WindowsManager.h"
 
 static third_presenter_t tp;
 

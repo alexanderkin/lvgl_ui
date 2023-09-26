@@ -1,8 +1,8 @@
 ﻿#ifndef EVENTSMANAGER_H
 #define EVENTSMANAGER_H
 
-#include "../interface/enum.h"
-#include "../interface/struct.h"
+#include "../generic/enum.h"
+#include "../generic/struct.h"
 #include "../interface/EventController.h"
 #include "../../LVGL.Simulator/lvgl/lvgl.h"
 

@@ -1,11 +1,11 @@
 ﻿#ifndef KEYBOARD_H
 #define KEYBOARD_H
 
-#include "../interface/enum.h"
-#include "../interface/struct.h"
-#include "../interface/WindowController.h"
-#include "../manager/EventsManager.h"
-#include "../../LVGL.Simulator/lvgl/lvgl.h"
+#include "../../../generic/enum.h"
+#include "../../../generic/struct.h"
+#include "../../../manager/EventsManager.h"
+#include "../../../interface/WindowController.h"
+#include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct KeyBoard {
     on_off_t hasInited;

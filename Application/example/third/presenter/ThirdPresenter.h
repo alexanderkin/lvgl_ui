@@ -1,9 +1,9 @@
 #ifndef THIRDPRESENTER_H
 #define THIRDPRESENTER_H
 
-#include "../interface/struct.h"
 #include "../view/ThirdWindow.h"
-#include "../interface/EventController.h"
+#include "../../../generic/struct.h"
+#include "../../../interface/EventController.h"
 
 typedef struct ThirdPresenter {
     event_controller_t controller;

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "./SecondPresenter.h"
-#include "../interface/enum.h"
-#include "../manager/EventsManager.h"
-#include "../manager/WindowsManager.h"
+#include "../../../generic/enum.h"
+#include "../../../manager/EventsManager.h"
+#include "../../../manager/WindowsManager.h"
 
 static second_presenter_t sp;
 
