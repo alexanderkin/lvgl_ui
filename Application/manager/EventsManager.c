@@ -6,6 +6,9 @@ static events_manager_t em;
 
 static void postEvent(i_event_type_t* i_event) {
     windows_t w = getWindowsManager()->getActivedWindow();
+    if (i_event->destination != EndWindow) {
+        w = i_event->destination;
+    }
     if (em.handler_stack[w] == NULL) return;
     em.handler_stack[w]->handleEvent(i_event);
 }

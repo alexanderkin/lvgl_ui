@@ -7,7 +7,7 @@
 static third_presenter_t tp;
 
 static void handleKeyEvent(key_event_t* event) {
-    switch (event->key)
+    switch (event->key_id)
     {
     case KeyFirst:
     case KeyThird:
@@ -37,7 +37,7 @@ static void handleKeyEvent(key_event_t* event) {
 }
 
 static void handleEvent(i_event_type_t* i_event) {
-    switch (i_event->type)
+    switch (i_event->event_type)
     {
     case KeyEvent:
         handleKeyEvent((key_event_t*)i_event);
