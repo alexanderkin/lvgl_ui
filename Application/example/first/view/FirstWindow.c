@@ -11,11 +11,17 @@ static void setLabelText(const char* text) {
 }
 
 static const char* getWindowName() {
-    return fw.name;
+    if (fw.hasInited == ON) {
+        return fw.name;
+    }
+    return NULL;
 }
 
 static lv_obj_t* getContainer() {
-    return fw.container;
+    if (fw.hasInited == ON) {
+        return fw.container;
+    }
+    return NULL;
 }
 
 static void spinboxSelectLeft(lv_obj_t* spinbox) {
@@ -59,7 +65,7 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_size(fw.spinbox, 750, 100);
     lv_obj_set_pos(fw.spinbox, 0, 100);
 
-    fw.controller.visable = OFF;
+    fw.controller.visable = inVisable;
     fw.controller.getContainer = getContainer;
     fw.controller.getWindowName = getWindowName;
 

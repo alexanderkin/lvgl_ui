@@ -11,11 +11,17 @@ static void setLabelText(const char* text) {
 }
 
 static const char* getWindowName() {
-    return tw.name;
+    if (tw.hasInited == ON) {
+        return tw.name;
+    }
+    return NULL;
 }
 
 static lv_obj_t* getContainer() {
-    return tw.container;
+    if (tw.hasInited == ON) {
+        return tw.container;
+    }
+    return NULL;
 }
 
 void initThirdWindow(lv_obj_t* parent) {
@@ -34,7 +40,7 @@ void initThirdWindow(lv_obj_t* parent) {
     tw.setLabelText = setLabelText;
     setLabelText(tw.name);
 
-    tw.controller.visable = OFF;
+    tw.controller.visable = inVisable;
     tw.controller.getContainer = getContainer;
     tw.controller.getWindowName = getWindowName;
 

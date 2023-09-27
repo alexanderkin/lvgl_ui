@@ -263,6 +263,7 @@
     <ClInclude Include="..\Application\example\first\presenter\FirstPresenter.h" />
     <ClInclude Include="..\Application\example\first\view\FirstWindow.h" />
     <ClInclude Include="..\Application\example\keyboard\view\KeyBoard.h" />
+    <ClInclude Include="..\Application\example\lineedit\view\LineEdit.h" />
     <ClInclude Include="..\Application\example\second\presenter\SecondPresenter.h" />
     <ClInclude Include="..\Application\example\second\view\SecondWindow.h" />
     <ClInclude Include="..\Application\example\third\presenter\ThirdPresenter.h" />
@@ -736,6 +737,7 @@
     <ClCompile Include="..\Application\example\first\presenter\FirstPresenter.c" />
     <ClCompile Include="..\Application\example\first\view\FirstWindow.c" />
     <ClCompile Include="..\Application\example\keyboard\view\KeyBoard.c" />
+    <ClCompile Include="..\Application\example\lineedit\view\LineEdit.c" />
     <ClCompile Include="..\Application\example\second\presenter\SecondPresenter.c" />
     <ClCompile Include="..\Application\example\second\view\SecondWindow.c" />
     <ClCompile Include="..\Application\example\third\presenter\ThirdPresenter.c" />

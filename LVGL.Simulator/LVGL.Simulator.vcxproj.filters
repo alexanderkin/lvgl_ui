@@ -738,6 +738,9 @@
     <ClInclude Include="..\Application\generic\struct.h">
       <Filter>Application\generic</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\example\lineedit\view\LineEdit.h">
+      <Filter>Application\example\lineedit\view</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2118,6 +2121,9 @@
     </ClCompile>
     <ClCompile Include="..\Application\example\second\presenter\SecondPresenter.c">
       <Filter>Application\example\second\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\lineedit\view\LineEdit.c">
+      <Filter>Application\example\lineedit\view</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -7061,6 +7067,15 @@
     </Filter>
     <Filter Include="Application\generic">
       <UniqueIdentifier>{67483f9c-59be-4aa1-a1aa-18ce84fee02c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\lineedit">
+      <UniqueIdentifier>{daae1bfd-83a0-4c34-b1a3-b614bc73dd83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\lineedit\presenter">
+      <UniqueIdentifier>{3f55e535-ab09-4ee1-b60c-d33b6578d2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\lineedit\view">
+      <UniqueIdentifier>{2050c3e7-5011-43ee-80cc-709638179097}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

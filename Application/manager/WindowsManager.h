@@ -11,10 +11,16 @@ typedef struct WindowsManager {
     windows_t activedWindow;
     window_controller_t* windows_stack[EndWindow];
     void* (*getWindow)(windows_t w);
+    windows_t (*getActivedWindow)();
     void (*switchActivedWindow)(windows_t w);
     window_controller_t* (*getWindowController)(windows_t w);
     void (*registerWindow)(window_controller_t* controller, windows_t w, bool isMainWindow);
-    windows_t (*getActivedWindow)();
+
+    window_controller_t* popup_windows_stack[EndPopupWindow];
+    void (*showPopupWindow)(popup_windows_t p);
+    void (*hidePopupWindow)(popup_windows_t p);
+    visable_t (*getPopupWindowStatus)(popup_windows_t p);
+    void (*registerPopupWindow)(window_controller_t* controller, popup_windows_t p);
 } windows_manager_t;
 
 windows_manager_t* getWindowsManager();

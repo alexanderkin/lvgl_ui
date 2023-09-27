@@ -6,6 +6,11 @@ typedef enum ON_OFF {
     OFF,
 } on_off_t;
 
+typedef enum VisableEnum {
+    Visable,
+    inVisable,
+} visable_t;
+
 typedef enum KeyTypeEnum {
     KeyFirst,
     KeySecond,
@@ -41,5 +46,11 @@ typedef enum Windows {
     ThirdWindow,
     EndWindow,
 } windows_t;
+
+typedef enum PopupWindows {
+    LineEditWindow,
+    WarningWindow,
+    EndPopupWindow,
+} popup_windows_t;
 
 #endif // ENUM_H
