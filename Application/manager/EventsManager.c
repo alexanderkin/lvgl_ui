@@ -17,11 +17,25 @@ static void registerEventHandler(event_controller_t* controller, windows_t w) {
     em.handler_stack[w] = controller;
 }
 
+static void eventTransferToPopup(i_event_type_t* i_event, popup_windows_t p) {
+    if (em.popup_handler_stack[p] == NULL) return;
+    em.popup_handler_stack[p]->handleEvent(i_event);
+}
+
+static void registerPopupEventHandler(event_controller_t* controller, popup_windows_t p) {
+    em.popup_handler_stack[p] = controller;
+}
+
 events_manager_t* getEventsManager() {
     return &em;
 }
 
 void initEventsManager() {
+    memset(em.handler_stack, 0, sizeof(em.handler_stack));
     em.postEvent = postEvent;
     em.registerEventHandler = registerEventHandler;
+
+    memset(em.popup_handler_stack, 0, sizeof(em.popup_handler_stack));
+    em.eventTransferToPopup = eventTransferToPopup;
+    em.registerPopupEventHandler = registerPopupEventHandler;
 }
