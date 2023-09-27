@@ -24,12 +24,6 @@ void initThirdWindow(lv_obj_t* parent) {
     lv_style_set_border_width(&tw.style, 0);
     lv_style_set_radius(&tw.style, 0);
 
-    tw.controller.visable = OFF;
-    tw.controller.getContainer = getContainer;
-    tw.controller.getWindowName = getWindowName;
-
-    tw.hasInited = ON;
-
     tw.name = "ThirdWindow";
 
     tw.container = lv_obj_create(parent);
@@ -39,5 +33,12 @@ void initThirdWindow(lv_obj_t* parent) {
     tw.label = lv_label_create(tw.container);
     tw.setLabelText = setLabelText;
     setLabelText(tw.name);
+
+    tw.controller.visable = OFF;
+    tw.controller.getContainer = getContainer;
+    tw.controller.getWindowName = getWindowName;
+
+    tw.hasInited = ON;
+    
     getWindowsManager()->registerWindow(&tw.controller, ThirdWindow, false);
 }

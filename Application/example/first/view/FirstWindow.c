@@ -40,17 +40,6 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_style_set_border_width(&fw.style, 0);
     lv_style_set_radius(&fw.style, 0);
 
-    fw.controller.visable = OFF;
-    fw.controller.getContainer = getContainer;
-    fw.controller.getWindowName = getWindowName;
-
-    fw.spinboxSelectLeft = spinboxSelectLeft;
-    fw.spinboxSelectRight = spinboxSelectRight;
-    fw.spinboxSelectUp = spinboxSelectUp;
-    fw.spinboxSelectDown = spinboxSelectDown;
-
-    fw.hasInited = ON;
-
     fw.name = "FirstWindow";
 
     fw.container = lv_obj_create(parent);
@@ -69,6 +58,17 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_width(fw.spinbox, 100);
     lv_obj_set_size(fw.spinbox, 750, 100);
     lv_obj_set_pos(fw.spinbox, 0, 100);
+
+    fw.controller.visable = OFF;
+    fw.controller.getContainer = getContainer;
+    fw.controller.getWindowName = getWindowName;
+
+    fw.spinboxSelectLeft = spinboxSelectLeft;
+    fw.spinboxSelectRight = spinboxSelectRight;
+    fw.spinboxSelectUp = spinboxSelectUp;
+    fw.spinboxSelectDown = spinboxSelectDown;
+
+    fw.hasInited = ON;
 
     getWindowsManager()->registerWindow(&fw.controller, FirstWindow, true);
 }

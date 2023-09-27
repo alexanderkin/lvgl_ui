@@ -15,8 +15,29 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyThird:
         getWindowsManager()->switchActivedWindow(ThirdWindow);
         break;
-    case KeySelect1:
-        fp.window->setLabelText("First KeySelect1");
+    case KeySelect:
+        fp.window->setLabelText("First KeySelect");
+        break;
+    case KeyNum0:
+    case KeyNum1:
+    case KeyNum2:
+    case KeyNum3:
+    case KeyNum4:
+    case KeyNum5:
+    case KeyNum6:
+    case KeyNum7:
+    case KeyNum8:
+    case KeyNum9:
+        printf("key value = %d\n", event->key_id - KeyNum0);
+        break;
+    case KeyDot:
+        printf("key value = .\n");
+        break;
+    case KeyBackspace:
+        printf("key value = <-\n");
+        break;
+    case KeyEnter:
+        printf("key value = Enter\n");
         break;
     case KeyLeft:
         fp.window->spinboxSelectLeft(fp.window->spinbox);

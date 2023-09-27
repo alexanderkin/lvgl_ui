@@ -3,15 +3,35 @@
 #include "../../../manager/WindowsManager.h"
 
 #define KeyBoardWidth 800
-#define KeyBoardHeight 100
+#define KeyBoardHeight 200
 
 key_board_t kb;
-static const char* key_map[] = {
-    "First", "Second", "Third", "Select1", "Left", "Rigth", "\n", 
-    "Up", "Down", ""
+
+static const char* special_key_map[] = {
+    "First", "Second", "Third", "Select", ""
 };
 
-static void event_handler(lv_event_t * e) {
+static const int special_key_id[] = {
+    KeyFirst, KeySecond, KeyThird, KeySelect
+};
+
+static const char* generic_key_map[] = {
+    "7", "8", "9",  "Left",  "\n",
+    "4", "5", "6",  "Right", "\n",
+    "1", "2", "3",  "Up",    "\n",
+    "0", ".", "<-", "Down",  "\n",
+    "Enter", ""
+};
+
+static const int generic_key_id[] = {
+    KeyNum7, KeyNum8, KeyNum9,      KeyLeft,
+    KeyNum4, KeyNum5, KeyNum6,      KeyRight,
+    KeyNum1, KeyNum2, KeyNum3,      KeyUp,
+    KeyNum0, KeyDot,  KeyBackspace, KeyDown,
+    KeyEnter
+};
+
+static void special_event_handler(lv_event_t * e) {
     lv_obj_t* obj = lv_event_get_target(e);
     if (e->code == LV_EVENT_CLICKED) {
         key_event_t event = {
@@ -19,17 +39,33 @@ static void event_handler(lv_event_t * e) {
                 .event_type = KeyEvent,
                 .destination = EndWindow,
             },
-            .key_id = lv_btnmatrix_get_selected_btn(obj),
+            .key_id = special_key_id[lv_btnmatrix_get_selected_btn(obj)],
+        };
+        getEventsManager()->postEvent(&event.i_event);
+    }
+}
+
+static void generic_event_handler(lv_event_t * e) {
+    lv_obj_t* obj = lv_event_get_target(e);
+    if (e->code == LV_EVENT_CLICKED) {
+        key_event_t event = {
+            .i_event = {
+                .event_type = KeyEvent,
+                .destination = EndWindow,
+            },
+            .key_id = generic_key_id[lv_btnmatrix_get_selected_btn(obj)],
         };
         getEventsManager()->postEvent(&event.i_event);
     }
 }
 
 void initKeyBoard(lv_obj_t* parent) {
+    static lv_style_t style;
     lv_style_init(&kb.style);
-    lv_style_set_bg_color(&kb.style, lv_color_white());
+    lv_style_set_bg_color(&kb.style, lv_color_make(224, 224, 224));
     lv_style_set_border_width(&kb.style, 0);
     lv_style_set_radius(&kb.style, 0);
+    lv_style_set_pad_all(&kb.style, 0);
 
     kb.hasInited = ON;
 
@@ -39,19 +75,21 @@ void initKeyBoard(lv_obj_t* parent) {
     lv_obj_add_style(kb.container, &kb.style, 0);
     lv_obj_set_size(kb.container, KeyBoardWidth, KeyBoardHeight);
     lv_obj_set_pos(kb.container, 0, 480);
-    static lv_coord_t column_dsc[] = {KeyBoardWidth, LV_GRID_TEMPLATE_LAST};
-    static lv_coord_t row_dsc[] = {KeyBoardHeight, LV_GRID_TEMPLATE_LAST};
-    lv_obj_set_style_grid_column_dsc_array(kb.container, column_dsc, 0);
-    lv_obj_set_style_grid_row_dsc_array(kb.container, row_dsc, 0);
-    lv_obj_set_style_pad_all(kb.container, 0, 0);
-    lv_obj_set_layout(kb.container, LV_LAYOUT_GRID);
 
-    kb.key_matrix = lv_btnmatrix_create(kb.container);
-    lv_obj_add_style(kb.key_matrix, &kb.style, 0);
-    lv_obj_set_size(kb.key_matrix, KeyBoardWidth, KeyBoardHeight);
-    lv_btnmatrix_set_map(kb.key_matrix, key_map);
-    lv_btnmatrix_set_one_checked(kb.key_matrix, true);
-    lv_obj_set_grid_cell(kb.key_matrix, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 0, 1);
-    lv_obj_add_event_cb(kb.key_matrix, event_handler, LV_EVENT_CLICKED, NULL);
+    kb.special_key_matrix = lv_btnmatrix_create(kb.container);
+    // lv_obj_add_style(kb.special_key_matrix, &kb.style, 0);
+    lv_obj_set_size(kb.special_key_matrix, 500, KeyBoardHeight - 1);
+    lv_obj_set_pos(kb.special_key_matrix, 0, 1);
+    lv_btnmatrix_set_map(kb.special_key_matrix, special_key_map);
+    lv_btnmatrix_set_one_checked(kb.special_key_matrix, true);
+    lv_obj_add_event_cb(kb.special_key_matrix, special_event_handler, LV_EVENT_CLICKED, NULL);
+
+    kb.generic_key_matrix = lv_btnmatrix_create(kb.container);
+    // lv_obj_add_style(kb.generic_key_matrix, &kb.style, 0);
+    lv_obj_set_size(kb.generic_key_matrix, 300, KeyBoardHeight - 1);
+    lv_obj_set_pos(kb.generic_key_matrix, 500, 1);
+    lv_btnmatrix_set_map(kb.generic_key_matrix, generic_key_map);
+    lv_btnmatrix_set_one_checked(kb.generic_key_matrix, true);
+    lv_obj_add_event_cb(kb.generic_key_matrix, generic_event_handler, LV_EVENT_CLICKED, NULL);
     // lv_obj_add_flag(kb.container, LV_OBJ_FLAG_HIDDEN);
 }

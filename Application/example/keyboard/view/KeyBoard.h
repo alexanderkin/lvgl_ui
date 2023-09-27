@@ -10,7 +10,8 @@
 typedef struct KeyBoard {
     on_off_t hasInited;
     lv_obj_t* container;
-    lv_obj_t* key_matrix;
+    lv_obj_t* special_key_matrix;
+    lv_obj_t* generic_key_matrix;
     lv_style_t style;
     char* name;
 } key_board_t;
