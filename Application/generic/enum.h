@@ -47,10 +47,4 @@ typedef enum Windows {
     EndWindow,
 } windows_t;
 
-typedef enum PopupWindows {
-    LineEditWindow,
-    WarningWindow,
-    EndPopupWindow,
-} popup_windows_t;
-
 #endif // ENUM_H

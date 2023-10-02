@@ -47,27 +47,6 @@ static void* getWindow(windows_t w) {
     return (void*)wm.windows_stack[w];
 }
 
-static void showPopupWindow(popup_windows_t p) {
-    if (wm.popup_windows_stack[p] == NULL) return;
-    wm.popup_windows_stack[p]->visable = Visable;
-    lv_obj_clear_flag(wm.popup_windows_stack[p]->getContainer(), LV_OBJ_FLAG_HIDDEN);
-}
-
-static void hidePopupWindow(popup_windows_t p) {
-    if (wm.popup_windows_stack[p] == NULL) return;
-    wm.popup_windows_stack[p]->visable = inVisable;
-    lv_obj_add_flag(wm.popup_windows_stack[p]->getContainer(), LV_OBJ_FLAG_HIDDEN);
-}
-
-static visable_t getPopupWindowStatus(popup_windows_t p) {
-    return wm.popup_windows_stack[p]->visable;
-}
-
-static void registerPopupWindow(window_controller_t* controller, popup_windows_t p) {
-    wm.popup_windows_stack[p] = controller;
-    hidePopupWindow(p);
-}
-
 windows_manager_t* getWindowsManager() {
     return &wm;
 }
@@ -82,10 +61,4 @@ void initWindowsManager() {
     wm.getActivedWindow = getActivedWindow;
     wm.switchActivedWindow = switchActivedWindow;
     wm.getWindowController = getWindowController;
-    
-    memset(wm.popup_windows_stack, 0, sizeof(wm.popup_windows_stack));
-    wm.showPopupWindow = showPopupWindow;
-    wm.hidePopupWindow = hidePopupWindow;
-    wm.getPopupWindowStatus = getPopupWindowStatus;
-    wm.registerPopupWindow = registerPopupWindow;
 }

@@ -20,6 +20,6 @@ void initMainApplication(void) {
     initSecondPresenter(getWindowsManager()->getWindow(SecondWindow));
     initThirdWindow(screen);
     initThirdPresenter(getWindowsManager()->getWindow(ThirdWindow));
-    initLineEdit(screen);
+    // initLineEdit(screen);
     initKeyBoard(screen);
 }
