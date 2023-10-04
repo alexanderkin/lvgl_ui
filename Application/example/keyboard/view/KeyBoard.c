@@ -8,38 +8,57 @@
 key_board_t kb;
 
 static const char* special_key_map[] = {
-    "First", "Second", "Third", "Select", ""
+    "First", "Second", "Third", "Select", "\n",
+    "Left",  "Right",  "Up",    "Down",   ""
 };
 
 static const int special_key_id[] = {
-    KeyFirst, KeySecond, KeyThird, KeySelect
+    KeyFirst, KeySecond, KeyThird, KeySelect,
+    KeyLeft,  KeyRight,  KeyUp,    KeyDown
 };
 
 static const char* generic_key_map[] = {
-    "7", "8", "9",  "Left",  "\n",
-    "4", "5", "6",  "Right", "\n",
-    "1", "2", "3",  "Up",    "\n",
-    "0", ".", "<-", "Down",  "\n",
+    "7", "8", "9",  "\n",
+    "4", "5", "6",  "\n",
+    "1", "2", "3",  "\n",
+    "0", ".", "<-", "\n",
     "Enter", ""
 };
 
 static const int generic_key_id[] = {
-    KeyNum7, KeyNum8, KeyNum9,      KeyLeft,
-    KeyNum4, KeyNum5, KeyNum6,      KeyRight,
-    KeyNum1, KeyNum2, KeyNum3,      KeyUp,
-    KeyNum0, KeyDot,  KeyBackspace, KeyDown,
+    KeyNum7, KeyNum8, KeyNum9,
+    KeyNum4, KeyNum5, KeyNum6,
+    KeyNum1, KeyNum2, KeyNum3,
+    KeyNum0, KeyDot,  KeyBackspace,
     KeyEnter
 };
 
 static void special_event_handler(lv_event_t * e) {
+    windows_t w = EndWindow;
     lv_obj_t* obj = lv_event_get_target(e);
+    key_type_t id = special_key_id[lv_btnmatrix_get_selected_btn(obj)];
     if (e->code == LV_EVENT_CLICKED) {
+        switch (id)
+        {
+        case KeyFirst:
+            w = FirstWindow;
+            break;
+        case KeySecond:
+            w = SecondWindow;
+            break;
+        case KeyThird:
+            w = ThirdWindow;
+            break;
+        default:
+            w = EndWindow;
+            break;
+        }
         key_event_t event = {
             .i_event = {
                 .event_type = KeyEvent,
-                .destination = EndWindow,
+                .destination = w,
             },
-            .key_id = special_key_id[lv_btnmatrix_get_selected_btn(obj)],
+            .key_id = id,
         };
         getEventsManagerInterface()->postEvent(&event.i_event);
     }

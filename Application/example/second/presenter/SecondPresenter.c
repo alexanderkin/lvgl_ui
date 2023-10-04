@@ -10,12 +10,12 @@ static second_presenter_t sp;
 static void handleKeyEvent(key_event_t* event) {
     switch (event->key_id)
     {
-    case KeyFirst:
     case KeySecond:
-        getWindowsManagerInterface()->switchActivedWindow(FirstWindow);
-        break;
-    case KeyThird:
-        getWindowsManagerInterface()->switchActivedWindow(ThirdWindow);
+        if (getWindowsManagerInterface()->getActivedWindow() != SecondWindow) {
+            getWindowsManagerInterface()->switchActivedWindow(SecondWindow);
+        } else {
+            getWindowsManagerInterface()->switchActivedWindow(FirstWindow);
+        }
         break;
     case KeySelect:
         sp.window->setLabelText("Second KeySelect");
