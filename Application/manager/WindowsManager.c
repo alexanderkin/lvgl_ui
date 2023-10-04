@@ -72,6 +72,9 @@ static void showPopupWindow(popup_windows_t p) {
     wm.activedPopupWindow = p;
     wm.popup_stack[p]->visable = Visable;
     lv_obj_clear_flag(wm.popup_stack[p]->getContainer(), LV_OBJ_FLAG_HIDDEN);
+    if (wm.popup_stack[p]->onShow != NULL) {
+        wm.popup_stack[p]->onShow();
+    }
 }
 
 static void* getPopupWindow(popup_windows_t p) {

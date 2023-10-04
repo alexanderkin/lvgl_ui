@@ -7,6 +7,7 @@
 typedef struct IWindowController {
     visable_t visable;
     lv_obj_t* (*getContainer)();
+    void (*onShow)();
     const char* (*getWindowName)();
 } window_controller_i;
 

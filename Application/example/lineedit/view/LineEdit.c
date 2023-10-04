@@ -13,6 +13,10 @@ static lv_obj_t* getContainer() {
     return le.container;
 }
 
+static void onShow() {
+    lv_obj_add_state(le.input_area, LV_STATE_FOCUSED);
+}
+
 void initLineEdit(lv_obj_t* parent) {
     lv_style_init(&le.container_style);
     lv_style_set_radius(&le.container_style, 0);
@@ -90,6 +94,7 @@ void initLineEdit(lv_obj_t* parent) {
     le.controller.visable = inVisable;
     le.controller.getContainer = getContainer;
     le.controller.getWindowName = getWindowName;
+    le.controller.onShow = onShow;
     
     getWindowsManagerInterface()->registerPopupWindow(&le.controller, LineEditWindow);
 }
