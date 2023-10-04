@@ -40,11 +40,22 @@ typedef enum EventTypeEnum {
     KeyEvent,
 } event_type_t;
 
+typedef enum WindowsType {
+    Window,
+    PopupWindow
+} windows_type_t;
+
 typedef enum Windows {
     FirstWindow,
     SecondWindow,
     ThirdWindow,
     EndWindow,
 } windows_t;
+
+typedef enum PopupWindows {
+    LineEditWindow,
+    WarningWindow,
+    EndPopupWindow,
+} popup_windows_t;
 
 #endif // ENUM_H
