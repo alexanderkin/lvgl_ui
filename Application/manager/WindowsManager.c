@@ -49,7 +49,10 @@ static void registerWindow(window_controller_i* controller, windows_t w, bool is
 }
 
 static windows_type_t getActivedWindowsType() {
-    return wm.activedWindowsType;
+    if (wm.activedPopupWindow != EndPopupWindow) {
+        return PopupWindow;
+    }
+    return Window;
 }
 
 static void hidePopupWindow(popup_windows_t p) {
@@ -102,7 +105,6 @@ void initWindowsManager() {
     wm.wmi.getWindowController = getWindowController;
     wm.wmi.registerWindow = registerWindow;
 
-    wm.activedWindowsType = Window;
     wm.wmi.getActivedWindowsType = getActivedWindowsType;
 
     wm.activedPopupWindow = EndPopupWindow;

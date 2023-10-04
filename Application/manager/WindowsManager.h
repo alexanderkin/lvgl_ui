@@ -10,8 +10,6 @@ typedef struct WindowsManager {
     windows_t mainWindow;
     windows_t activedWindow;
     window_controller_i* windows_stack[EndWindow];
-    //窗口类型
-    windows_type_t activedWindowsType;
     //弹窗
     popup_windows_t activedPopupWindow;
     window_controller_i* popup_stack[EndPopupWindow];
