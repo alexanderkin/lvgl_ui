@@ -3,10 +3,10 @@
 
 #include "../view/SecondWindow.h"
 #include "../../../generic/struct.h"
-#include "../../../interface/EventController.h"
+#include "../../../interface/IEventController.h"
 
 typedef struct SecondPresenter {
-    event_controller_t controller;
+    event_controller_i controller;
     second_window_t* window;
 } second_presenter_t;
 

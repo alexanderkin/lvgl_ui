@@ -2,11 +2,11 @@
 #define SECONDWINDOW_H
 
 #include "../../../generic/enum.h"
-#include "../../../interface/WindowController.h"
+#include "../../../interface/IWindowController.h"
 #include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct SecondWindow {
-    window_controller_t controller;
+    window_controller_i controller;
     on_off_t hasInited;
     lv_obj_t* container;
     lv_style_t style;

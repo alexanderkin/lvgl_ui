@@ -46,5 +46,5 @@ void initThirdWindow(lv_obj_t* parent) {
 
     tw.hasInited = ON;
     
-    getWindowsManager()->registerWindow(&tw.controller, ThirdWindow, false);
+    getWindowsManagerInterface()->registerWindow(&tw.controller, ThirdWindow, false);
 }

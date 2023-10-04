@@ -36,5 +36,5 @@ void initLineEdit(lv_obj_t* parent) {
 
     le.hasInited = ON;
     
-    getWindowsManager()->registerPopupWindow(&le.controller, LineEditWindow);
+    getWindowsManagerInterface()->registerPopupWindow(&le.controller, LineEditWindow);
 }

@@ -4,7 +4,7 @@
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
 #include "../../../manager/EventsManager.h"
-#include "../../../interface/WindowController.h"
+#include "../../../interface/IWindowController.h"
 #include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct KeyBoard {

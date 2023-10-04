@@ -3,13 +3,13 @@
 
 #include "../generic/enum.h"
 #include "../generic/struct.h"
-#include "../interface/EventController.h"
+#include "../interface/IEventController.h"
 #include "../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct EventsManager {
-    event_controller_t* handler_stack[EndWindow];
+    event_controller_i* handler_stack[EndWindow];
     void (*postEvent)(i_event_type_t* i_event);
-    void (*registerEventHandler)(event_controller_t* controller, windows_t w);
+    void (*registerEventHandler)(event_controller_i* controller, windows_t w);
 } events_manager_t;
 
 void initEventsManager();

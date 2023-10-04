@@ -702,9 +702,6 @@
     <ClInclude Include="..\Application\Application.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="..\Application\interface\WindowController.h">
-      <Filter>Application\interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\Application\manager\WindowsManager.h">
       <Filter>Application\manager</Filter>
     </ClInclude>
@@ -740,6 +737,15 @@
     </ClInclude>
     <ClInclude Include="..\Application\example\lineedit\view\LineEdit.h">
       <Filter>Application\example\lineedit\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\IEventController.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\IWindowController.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\IWindowsManager.h">
+      <Filter>Application\interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

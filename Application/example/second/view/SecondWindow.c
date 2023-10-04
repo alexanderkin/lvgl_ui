@@ -46,5 +46,5 @@ void initSecondWindow(lv_obj_t* parent) {
 
     sw.hasInited = ON;
     
-    getWindowsManager()->registerWindow(&sw.controller, SecondWindow, false);
+    getWindowsManagerInterface()->registerWindow(&sw.controller, SecondWindow, false);
 }

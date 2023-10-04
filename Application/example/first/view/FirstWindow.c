@@ -76,5 +76,5 @@ void initFirstWindow(lv_obj_t* parent) {
 
     fw.hasInited = ON;
 
-    getWindowsManager()->registerWindow(&fw.controller, FirstWindow, true);
+    getWindowsManagerInterface()->registerWindow(&fw.controller, FirstWindow, true);
 }

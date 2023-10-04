@@ -1,5 +1,6 @@
 ﻿#include <stdio.h>
 #include "./WindowsManager.h"
+#include "../../LVGL.Simulator/lvgl/lvgl.h"
 
 static windows_manager_t wm;
 
@@ -33,11 +34,11 @@ static void switchActivedWindow(windows_t w) {
     showWindow(w);
 }
 
-static window_controller_t* getWindowController(windows_t w) {
+static window_controller_i* getWindowController(windows_t w) {
     return wm.windows_stack[w];
 }
 
-static void registerWindow(window_controller_t* controller, windows_t w, bool isMainWindow) {
+static void registerWindow(window_controller_i* controller, windows_t w, bool isMainWindow) {
     wm.windows_stack[w] = controller;
     if (isMainWindow) {
         wm.mainWindow = w;
@@ -78,38 +79,38 @@ static popup_windows_t getActivedPopupWindow() {
     return wm.activedPopupWindow;
 }
 
-static window_controller_t* getPopupWindowController(popup_windows_t p) {
+static window_controller_i* getPopupWindowController(popup_windows_t p) {
     return wm.popup_stack[p];
 }
 
-static void registerPopupWindow(window_controller_t* controller, popup_windows_t p) {
+static void registerPopupWindow(window_controller_i* controller, popup_windows_t p) {
     wm.popup_stack[p] = controller;
     hidePopupWindow(p);
 }
 
-windows_manager_t* getWindowsManager() {
-    return &wm;
+windows_manager_i* getWindowsManagerInterface() {
+    return &wm.wmi;
 }
 
 void initWindowsManager() {
     wm.mainWindow = EndWindow;
     wm.activedWindow = EndWindow;
     memset(wm.windows_stack, 0, sizeof(wm.windows_stack));
-    wm.getWindow = getWindow;
-    wm.getActivedWindow = getActivedWindow;
-    wm.switchActivedWindow = switchActivedWindow;
-    wm.getWindowController = getWindowController;
-    wm.registerWindow = registerWindow;
+    wm.wmi.getWindow = getWindow;
+    wm.wmi.getActivedWindow = getActivedWindow;
+    wm.wmi.switchActivedWindow = switchActivedWindow;
+    wm.wmi.getWindowController = getWindowController;
+    wm.wmi.registerWindow = registerWindow;
 
     wm.activedWindowsType = Window;
-    wm.getActivedWindowsType = getActivedWindowsType;
+    wm.wmi.getActivedWindowsType = getActivedWindowsType;
 
     wm.activedPopupWindow = EndPopupWindow;
     memset(wm.popup_stack, 0, sizeof(wm.popup_stack));
-    wm.showPopupWindow = showPopupWindow;
-    wm.hidePopupWindow = hidePopupWindow;
-    wm.getPopupWindow = getPopupWindow;
-    wm.getActivedPopupWindow = getActivedPopupWindow;
-    wm.getPopupWindowController = getPopupWindowController;
-    wm.registerPopupWindow = registerPopupWindow;
+    wm.wmi.showPopupWindow = showPopupWindow;
+    wm.wmi.hidePopupWindow = hidePopupWindow;
+    wm.wmi.getPopupWindow = getPopupWindow;
+    wm.wmi.getActivedPopupWindow = getActivedPopupWindow;
+    wm.wmi.getPopupWindowController = getPopupWindowController;
+    wm.wmi.registerPopupWindow = registerPopupWindow;
 }

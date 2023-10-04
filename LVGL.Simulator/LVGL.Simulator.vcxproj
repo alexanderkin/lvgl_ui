@@ -270,7 +270,9 @@
     <ClInclude Include="..\Application\example\third\view\ThirdWindow.h" />
     <ClInclude Include="..\Application\generic\enum.h" />
     <ClInclude Include="..\Application\generic\struct.h" />
-    <ClInclude Include="..\Application\interface\WindowController.h" />
+    <ClInclude Include="..\Application\interface\IEventController.h" />
+    <ClInclude Include="..\Application\interface\IWindowController.h" />
+    <ClInclude Include="..\Application\interface\IWindowsManager.h" />
     <ClInclude Include="..\Application\manager\EventsManager.h" />
     <ClInclude Include="..\Application\manager\WindowsManager.h" />
     <ClInclude Include="lv_conf.h" />
