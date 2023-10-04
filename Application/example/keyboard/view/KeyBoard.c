@@ -79,14 +79,11 @@ static void generic_event_handler(lv_event_t * e) {
 }
 
 void initKeyBoard(lv_obj_t* parent) {
-    static lv_style_t style;
     lv_style_init(&kb.style);
-    lv_style_set_bg_color(&kb.style, lv_color_make(224, 224, 224));
-    lv_style_set_border_width(&kb.style, 0);
     lv_style_set_radius(&kb.style, 0);
     lv_style_set_pad_all(&kb.style, 0);
-
-    kb.hasInited = ON;
+    lv_style_set_border_width(&kb.style, 0);
+    lv_style_set_bg_color(&kb.style, lv_color_make(224, 224, 224));
 
     kb.name = "KeyBoard";
 
@@ -96,7 +93,6 @@ void initKeyBoard(lv_obj_t* parent) {
     lv_obj_set_pos(kb.container, 0, 480);
 
     kb.special_key_matrix = lv_btnmatrix_create(kb.container);
-    // lv_obj_add_style(kb.special_key_matrix, &kb.style, 0);
     lv_obj_set_size(kb.special_key_matrix, 500, KeyBoardHeight - 1);
     lv_obj_set_pos(kb.special_key_matrix, 0, 1);
     lv_btnmatrix_set_map(kb.special_key_matrix, special_key_map);
@@ -104,7 +100,6 @@ void initKeyBoard(lv_obj_t* parent) {
     lv_obj_add_event_cb(kb.special_key_matrix, special_event_handler, LV_EVENT_CLICKED, NULL);
 
     kb.generic_key_matrix = lv_btnmatrix_create(kb.container);
-    // lv_obj_add_style(kb.generic_key_matrix, &kb.style, 0);
     lv_obj_set_size(kb.generic_key_matrix, 300, KeyBoardHeight - 1);
     lv_obj_set_pos(kb.generic_key_matrix, 500, 1);
     lv_btnmatrix_set_map(kb.generic_key_matrix, generic_key_map);

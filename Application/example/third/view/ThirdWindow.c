@@ -1,39 +1,33 @@
 #include <stdio.h>
 #include "./ThirdWindow.h"
+#include "../../../generic/macro.h"
 #include "../../../manager/WindowsManager.h"
 
 static third_window_t tw;
 
 static void setLabelText(const char* text) {
-    if (tw.hasInited == ON) {
-        lv_label_set_text(tw.label, text);
-    }
+    lv_label_set_text(tw.label, text);
 }
 
 static const char* getWindowName() {
-    if (tw.hasInited == ON) {
-        return tw.name;
-    }
-    return NULL;
+    return tw.name;
 }
 
 static lv_obj_t* getContainer() {
-    if (tw.hasInited == ON) {
-        return tw.container;
-    }
-    return NULL;
+    return tw.container;
 }
 
 void initThirdWindow(lv_obj_t* parent) {
     lv_style_init(&tw.style);
-    lv_style_set_bg_color(&tw.style, lv_color_white());
-    lv_style_set_border_width(&tw.style, 0);
     lv_style_set_radius(&tw.style, 0);
+    lv_style_set_border_width(&tw.style, 0);
+    lv_style_set_bg_color(&tw.style, lv_color_white());
 
     tw.name = "ThirdWindow";
 
     tw.container = lv_obj_create(parent);
-    lv_obj_set_size(tw.container, 800, 480);
+    lv_obj_set_size(tw.container, WINDOWS_WIDTH, WINDOWS_HEIGH);
+    lv_obj_set_pos(tw.container, 0, 0);
     lv_obj_add_style(tw.container, &tw.style, 0);
 
     tw.label = lv_label_create(tw.container);
@@ -43,8 +37,6 @@ void initThirdWindow(lv_obj_t* parent) {
     tw.controller.visable = inVisable;
     tw.controller.getContainer = getContainer;
     tw.controller.getWindowName = getWindowName;
-
-    tw.hasInited = ON;
     
     getWindowsManagerInterface()->registerWindow(&tw.controller, ThirdWindow, false);
 }

@@ -270,6 +270,7 @@
     <ClInclude Include="..\Application\example\third\presenter\ThirdPresenter.h" />
     <ClInclude Include="..\Application\example\third\view\ThirdWindow.h" />
     <ClInclude Include="..\Application\generic\enum.h" />
+    <ClInclude Include="..\Application\generic\macro.h" />
     <ClInclude Include="..\Application\generic\struct.h" />
     <ClInclude Include="..\Application\interface\IEventController.h" />
     <ClInclude Include="..\Application\interface\IEventsManager.h" />

@@ -1,27 +1,20 @@
 ﻿#include <stdio.h>
 #include "./FirstWindow.h"
+#include "../../../generic/macro.h"
 #include "../../../manager/WindowsManager.h"
 
 static first_window_t fw;
 
 static void setLabelText(const char* text) {
-    if (fw.hasInited == ON) {
-        lv_label_set_text(fw.label, text);
-    }
+    lv_label_set_text(fw.label, text);
 }
 
 static const char* getWindowName() {
-    if (fw.hasInited == ON) {
-        return fw.name;
-    }
-    return NULL;
+    return fw.name;
 }
 
 static lv_obj_t* getContainer() {
-    if (fw.hasInited == ON) {
-        return fw.container;
-    }
-    return NULL;
+    return fw.container;
 }
 
 static void spinboxSelectLeft(lv_obj_t* spinbox) {
@@ -42,14 +35,15 @@ static void spinboxSelectDown(lv_obj_t* spinbox) {
 
 void initFirstWindow(lv_obj_t* parent) {
     lv_style_init(&fw.style);
-    lv_style_set_bg_color(&fw.style, lv_color_white());
-    lv_style_set_border_width(&fw.style, 0);
     lv_style_set_radius(&fw.style, 0);
+    lv_style_set_border_width(&fw.style, 0);
+    lv_style_set_bg_color(&fw.style, lv_color_white());
 
     fw.name = "FirstWindow";
 
     fw.container = lv_obj_create(parent);
-    lv_obj_set_size(fw.container, 800, 480);
+    lv_obj_set_size(fw.container, WINDOWS_WIDTH, WINDOWS_HEIGH);
+    lv_obj_set_pos(fw.container, 0, 0);
     lv_obj_add_style(fw.container, &fw.style, 0);
     
     fw.label = lv_label_create(fw.container);
@@ -73,8 +67,6 @@ void initFirstWindow(lv_obj_t* parent) {
     fw.spinboxSelectRight = spinboxSelectRight;
     fw.spinboxSelectUp = spinboxSelectUp;
     fw.spinboxSelectDown = spinboxSelectDown;
-
-    fw.hasInited = ON;
 
     getWindowsManagerInterface()->registerWindow(&fw.controller, FirstWindow, true);
 }

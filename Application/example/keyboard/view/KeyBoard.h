@@ -8,7 +8,6 @@
 #include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct KeyBoard {
-    on_off_t hasInited;
     lv_obj_t* container;
     lv_obj_t* special_key_matrix;
     lv_obj_t* generic_key_matrix;

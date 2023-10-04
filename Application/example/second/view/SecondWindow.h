@@ -7,7 +7,6 @@
 
 typedef struct SecondWindow {
     window_controller_i controller;
-    on_off_t hasInited;
     lv_obj_t* container;
     lv_style_t style;
     lv_obj_t* label;
