@@ -17,12 +17,12 @@ static void registerEventHandler(event_controller_i* controller, windows_t w) {
     em.handler_stack[w] = controller;
 }
 
-events_manager_t* getEventsManager() {
-    return &em;
+events_manager_i* getEventsManagerInterface() {
+    return &em.emi;
 }
 
 void initEventsManager() {
     memset(em.handler_stack, 0, sizeof(em.handler_stack));
-    em.postEvent = postEvent;
-    em.registerEventHandler = registerEventHandler;
+    em.emi.postEvent = postEvent;
+    em.emi.registerEventHandler = registerEventHandler;
 }

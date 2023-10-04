@@ -50,5 +50,5 @@ static void handleEvent(i_event_type_t* i_event) {
 void initThirdPresenter(third_window_t* window) {
     tp.window = window;
     tp.controller.handleEvent = handleEvent;
-    getEventsManager()->registerEventHandler(&tp.controller, ThirdWindow);
+    getEventsManagerInterface()->registerEventHandler(&tp.controller, ThirdWindow);
 }

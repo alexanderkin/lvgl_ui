@@ -50,5 +50,5 @@ static void handleEvent(i_event_type_t* i_event) {
 void initSecondPresenter(second_window_t* window) {
     sp.window = window;
     sp.controller.handleEvent = handleEvent;
-    getEventsManager()->registerEventHandler(&sp.controller, SecondWindow);
+    getEventsManagerInterface()->registerEventHandler(&sp.controller, SecondWindow);
 }

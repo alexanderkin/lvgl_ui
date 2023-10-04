@@ -41,7 +41,7 @@ static void special_event_handler(lv_event_t * e) {
             },
             .key_id = special_key_id[lv_btnmatrix_get_selected_btn(obj)],
         };
-        getEventsManager()->postEvent(&event.i_event);
+        getEventsManagerInterface()->postEvent(&event.i_event);
     }
 }
 
@@ -55,7 +55,7 @@ static void generic_event_handler(lv_event_t * e) {
             },
             .key_id = generic_key_id[lv_btnmatrix_get_selected_btn(obj)],
         };
-        getEventsManager()->postEvent(&event.i_event);
+        getEventsManagerInterface()->postEvent(&event.i_event);
     }
 }
 

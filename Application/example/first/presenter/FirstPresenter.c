@@ -70,5 +70,5 @@ static void handleEvent(i_event_type_t* i_event) {
 void initFirstPresenter(first_window_t* window) {
     fp.window = window;
     fp.controller.handleEvent = handleEvent;
-    getEventsManager()->registerEventHandler(&fp.controller, FirstWindow);
+    getEventsManagerInterface()->registerEventHandler(&fp.controller, FirstWindow);
 }

@@ -271,6 +271,7 @@
     <ClInclude Include="..\Application\generic\enum.h" />
     <ClInclude Include="..\Application\generic\struct.h" />
     <ClInclude Include="..\Application\interface\IEventController.h" />
+    <ClInclude Include="..\Application\interface\IEventsManager.h" />
     <ClInclude Include="..\Application\interface\IWindowController.h" />
     <ClInclude Include="..\Application\interface\IWindowsManager.h" />
     <ClInclude Include="..\Application\manager\EventsManager.h" />

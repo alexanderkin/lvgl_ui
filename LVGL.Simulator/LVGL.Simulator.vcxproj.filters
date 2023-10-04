@@ -747,6 +747,9 @@
     <ClInclude Include="..\Application\interface\IWindowsManager.h">
       <Filter>Application\interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\interface\IEventsManager.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
