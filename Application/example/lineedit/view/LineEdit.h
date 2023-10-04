@@ -19,6 +19,13 @@ typedef struct LineEdit {
     lv_obj_t* input_area;
     lv_style_t input_style;
     char* name;
+    on_off_t hasDot;
+    void (*addChar)(const char c);
+    void (*deleteChar)();
+    void (*textSelectLeft)();
+    void (*textSelectRight)();
+    const char* (*getCurrentInput)();
+    void (*clearInput)();
 } line_edit_t;
 
 void initLineEdit(lv_obj_t* parent);

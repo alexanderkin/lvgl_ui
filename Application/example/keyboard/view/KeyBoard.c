@@ -8,28 +8,26 @@
 key_board_t kb;
 
 static const char* special_key_map[] = {
-    "First", "Second", "Third", "Select", "\n",
-    "Left",  "Right",  "Up",    "Down",   ""
+    "First", "Second", "Third", "Select", ""
 };
 
 static const int special_key_id[] = {
-    KeyFirst, KeySecond, KeyThird, KeySelect,
-    KeyLeft,  KeyRight,  KeyUp,    KeyDown
+    KeyFirst, KeySecond, KeyThird, KeySelect
 };
 
 static const char* generic_key_map[] = {
-    "7", "8", "9",  "\n",
-    "4", "5", "6",  "\n",
-    "1", "2", "3",  "\n",
-    "0", ".", "<-", "\n",
+    "7", "8", "9",  "Left",  "\n",
+    "4", "5", "6",  "Right", "\n",
+    "1", "2", "3",  "Up",    "\n",
+    "0", ".", "<-", "Down",  "\n",
     "Enter", ""
 };
 
 static const int generic_key_id[] = {
-    KeyNum7, KeyNum8, KeyNum9,
-    KeyNum4, KeyNum5, KeyNum6,
-    KeyNum1, KeyNum2, KeyNum3,
-    KeyNum0, KeyDot,  KeyBackspace,
+    KeyNum7, KeyNum8, KeyNum9,      KeyLeft,
+    KeyNum4, KeyNum5, KeyNum6,      KeyRight,
+    KeyNum1, KeyNum2, KeyNum3,      KeyUp,
+    KeyNum0, KeyDot,  KeyBackspace, KeyDown,
     KeyEnter
 };
 

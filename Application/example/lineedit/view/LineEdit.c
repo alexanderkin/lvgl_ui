@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <string.h>
 #include "./LineEdit.h"
 #include "../../../generic/macro.h"
 #include "../../../manager/WindowsManager.h"
@@ -15,6 +16,41 @@ static lv_obj_t* getContainer() {
 
 static void onShow() {
     lv_obj_add_state(le.input_area, LV_STATE_FOCUSED);
+}
+
+static void addChar(const char c) {
+    if (c == '.') {
+        if (le.hasDot == ON) {
+            return;
+        }
+        le.hasDot = ON;
+    }
+    lv_textarea_add_char(le.input_area, c);
+}
+
+static void deleteChar() {
+    uint32_t pos = lv_textarea_get_cursor_pos(le.input_area);
+    const char *text = lv_textarea_get_text(le.input_area);
+    if (pos > 0 && text[pos - 1] == '.') {
+        le.hasDot = OFF;
+    }
+    lv_textarea_del_char(le.input_area);
+}
+
+static void textSelectLeft() {
+    lv_textarea_cursor_left(le.input_area);
+}
+
+static void textSelectRight() {
+    lv_textarea_cursor_right(le.input_area);
+}
+
+static const char* getCurrentInput() {
+    return lv_textarea_get_text(le.input_area);
+}
+
+static void clearInput() {
+    lv_textarea_set_text(le.input_area, "");
 }
 
 void initLineEdit(lv_obj_t* parent) {
@@ -48,6 +84,7 @@ void initLineEdit(lv_obj_t* parent) {
     lv_style_set_text_color(&le.input_style, lv_color_white());
 
     le.name = "LineEdit";
+    le.hasDot = OFF;
 
     le.container = lv_obj_create(parent);
     lv_obj_set_size(le.container, WINDOWS_WIDTH, WINDOWS_HEIGH);
@@ -86,6 +123,7 @@ void initLineEdit(lv_obj_t* parent) {
     lv_obj_add_style(le.input_area, &le.input_style, 0);
     lv_textarea_set_one_line(le.input_area, true);
     lv_textarea_set_max_length(le.input_area, 12);
+    lv_textarea_set_text_selection(le.input_area, false);
     lv_textarea_set_cursor_click_pos(le.input_area, false);
     lv_textarea_set_align(le.input_area, LV_TEXT_ALIGN_RIGHT);
     lv_textarea_set_accepted_chars(le.input_area, "0123456789.");
@@ -95,6 +133,13 @@ void initLineEdit(lv_obj_t* parent) {
     le.controller.getContainer = getContainer;
     le.controller.getWindowName = getWindowName;
     le.controller.onShow = onShow;
+
+    le.addChar = addChar;
+    le.deleteChar = deleteChar;
+    le.textSelectLeft = textSelectLeft;
+    le.textSelectRight = textSelectRight;
+    le.getCurrentInput = getCurrentInput;
+    le.clearInput = clearInput;
     
     getWindowsManagerInterface()->registerPopupWindow(&le.controller, LineEditWindow);
 }
