@@ -7,6 +7,7 @@
 
 typedef struct EventsManager {
     event_controller_i* handler_stack[EndWindow];
+    event_controller_i* popup_handler_stack[EndPopupWindow];
     events_manager_i emi;
 } events_manager_t;
 

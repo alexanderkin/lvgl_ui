@@ -27,7 +27,8 @@ void initLineEdit(lv_obj_t* parent) {
     le.name = "LineEdit";
 
     le.container = lv_obj_create(parent);
-    lv_obj_set_size(le.container, 200, 50);
+    lv_obj_set_size(le.container, 300, 100);
+    lv_obj_set_pos(le.container, 250, 190);
     lv_obj_add_style(le.container, &le.style, 0);
 
     le.controller.visable = inVisable;

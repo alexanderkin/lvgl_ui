@@ -2,7 +2,6 @@
 #define THIRDPRESENTER_H
 
 #include "../view/ThirdWindow.h"
-#include "../../../generic/struct.h"
 #include "../../../interface/IEventController.h"
 
 typedef struct ThirdPresenter {

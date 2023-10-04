@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "./SecondPresenter.h"
 #include "../../../generic/enum.h"
+#include "../../../generic/struct.h"
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 

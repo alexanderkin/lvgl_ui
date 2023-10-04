@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "./FirstPresenter.h"
 #include "../../../generic/enum.h"
+#include "../../../generic/struct.h"
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
@@ -28,16 +29,8 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyNum7:
     case KeyNum8:
     case KeyNum9:
-        printf("key value = %d\n", event->key_id - KeyNum0);
-        break;
-    case KeyDot:
-        printf("key value = .\n");
-        break;
-    case KeyBackspace:
-        printf("key value = <-\n");
-        break;
-    case KeyEnter:
-        printf("key value = Enter\n");
+        getWindowsManagerInterface()->showPopupWindow(LineEditWindow);
+        getEventsManagerInterface()->postEvent(&(event->i_event));
         break;
     case KeyLeft:
         fp.window->spinboxSelectLeft(fp.window->spinbox);

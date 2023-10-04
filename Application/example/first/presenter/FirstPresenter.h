@@ -2,7 +2,6 @@
 #define FIRSTPRESENTER_H
 
 #include "../view/FirstWindow.h"
-#include "../../../generic/struct.h"
 #include "../../../interface/IEventController.h"
 
 typedef struct FirstPresenter {

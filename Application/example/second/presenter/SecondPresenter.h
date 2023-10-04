@@ -2,7 +2,6 @@
 #define SECONDPRESENTER_H
 
 #include "../view/SecondWindow.h"
-#include "../../../generic/struct.h"
 #include "../../../interface/IEventController.h"
 
 typedef struct SecondPresenter {

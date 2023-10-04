@@ -750,6 +750,9 @@
     <ClInclude Include="..\Application\interface\IEventsManager.h">
       <Filter>Application\interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\example\lineedit\presenter\LineEditPresenter.h">
+      <Filter>Application\example\lineedit\presenter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2133,6 +2136,9 @@
     </ClCompile>
     <ClCompile Include="..\Application\example\lineedit\view\LineEdit.c">
       <Filter>Application\example\lineedit\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\lineedit\presenter\LineEditPresenter.c">
+      <Filter>Application\example\lineedit\presenter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

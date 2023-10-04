@@ -1,4 +1,5 @@
 ﻿#include "Application.h"
+#include "./example/lineedit/presenter/LineEditPresenter.h"
 #include "./example/lineedit/view/LineEdit.h"
 #include "./example/keyboard/view/KeyBoard.h"
 #include "./example/first/view/FirstWindow.h"
@@ -20,6 +21,7 @@ void initMainApplication(void) {
     initSecondPresenter(getWindowsManagerInterface()->getWindow(SecondWindow));
     initThirdWindow(screen);
     initThirdPresenter(getWindowsManagerInterface()->getWindow(ThirdWindow));
-    // initLineEdit(screen);
+    initLineEdit(screen);
+    initLineEditPresenter(getWindowsManagerInterface()->getPopupWindow(LineEditWindow));
     initKeyBoard(screen);
 }
