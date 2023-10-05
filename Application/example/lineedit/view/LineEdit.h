@@ -22,10 +22,10 @@ typedef struct LineEdit {
     on_off_t hasDot;
     void (*addChar)(const char c);
     void (*deleteChar)();
-    void (*textSelectLeft)();
-    void (*textSelectRight)();
+    void (*selectLeft)();
+    void (*selectRight)();
     const char* (*getCurrentInput)();
-    void (*clearInput)();
+    void (*clearCurrentInput)();
 } line_edit_t;
 
 void initLineEdit(lv_obj_t* parent);

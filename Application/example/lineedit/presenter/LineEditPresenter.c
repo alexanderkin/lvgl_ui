@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "./LineEditPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
@@ -31,26 +32,27 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyEnter:
         const char* text = lep.popup->getCurrentInput();
         getWindowsManagerInterface()->hidePopupWindow(LineEditWindow);
-        printf("Current input = %s\n", text);
+        double value = atof(text);
+        printf("Current input = %s, value = %lf\n", text, value);
         //字符串指针，用完之后在clear
-        lep.popup->clearInput();
+        lep.popup->clearCurrentInput();
         break;
     case KeyLeft:
-        lep.popup->textSelectLeft();
+        lep.popup->selectLeft();
         break;
     case KeyRight:
-        lep.popup->textSelectRight();
+        lep.popup->selectRight();
         break;
     default:
         break;
     }
 }
 
-static void handleEvent(i_event_type_t* i_event) {
-    switch (i_event->event_type)
+static void handleEvent(event_type_i* ievent) {
+    switch (ievent->event_type)
     {
     case KeyEvent:
-        handleKeyEvent((key_event_t*)i_event);
+        handleKeyEvent((key_event_t*)ievent);
         break;
     default:
         break;

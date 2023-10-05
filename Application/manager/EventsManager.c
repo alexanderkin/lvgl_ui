@@ -4,21 +4,24 @@
 
 static events_manager_t em;
 
-static void postEvent(i_event_type_t* i_event) {
-    if (i_event->destination != EndWindow) {
-        if (em.handler_stack[i_event->destination] == NULL) return;
-        em.handler_stack[i_event->destination]->handleEvent(i_event);
+static void postEvent(event_type_i* ievent) {
+    if (ievent->destination != EndWindow) {
+        if (em.handler_stack[ievent->destination] == NULL) 
+            return;
+        em.handler_stack[ievent->destination]->handleEvent(ievent);
         return;
     }
     if (getWindowsManagerInterface()->getActivedWindowsType() == PopupWindow) {
         popup_windows_t p = getWindowsManagerInterface()->getActivedPopupWindow();
-        if (em.popup_handler_stack[p] == NULL) return;
-        em.popup_handler_stack[p]->handleEvent(i_event);
+        if (em.popup_handler_stack[p] == NULL) 
+            return;
+        em.popup_handler_stack[p]->handleEvent(ievent);
         return;
     }
     windows_t w = getWindowsManagerInterface()->getActivedWindow();
-    if (em.handler_stack[w] == NULL) return;
-    em.handler_stack[w]->handleEvent(i_event);
+    if (em.handler_stack[w] == NULL) 
+        return;
+    em.handler_stack[w]->handleEvent(ievent);
 }
 
 static void registerEventHandler(event_controller_i* controller, windows_t w) {

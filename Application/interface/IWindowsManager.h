@@ -14,9 +14,9 @@ typedef struct IWindowsManager {
     //窗口类型
     windows_type_t (*getActivedWindowsType)();
     //弹窗
+    void* (*getPopupWindow)(popup_windows_t p);
     void (*showPopupWindow)(popup_windows_t p);
     void (*hidePopupWindow)(popup_windows_t p);
-    void* (*getPopupWindow)(popup_windows_t p);
     popup_windows_t (*getActivedPopupWindow)();
     window_controller_i* (*getPopupWindowController)(popup_windows_t p);
     void (*registerPopupWindow)(window_controller_i* controller, popup_windows_t p);

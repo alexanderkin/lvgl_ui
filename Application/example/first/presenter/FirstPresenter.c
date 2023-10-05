@@ -29,7 +29,7 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyNum8:
     case KeyNum9:
         getWindowsManagerInterface()->showPopupWindow(LineEditWindow);
-        getEventsManagerInterface()->postEvent(&(event->i_event));
+        getEventsManagerInterface()->postEvent(&(event->ievent));
         break;
     case KeyLeft:
         fp.window->spinboxSelectLeft(fp.window->spinbox);
@@ -48,11 +48,11 @@ static void handleKeyEvent(key_event_t* event) {
     }
 }
 
-static void handleEvent(i_event_type_t* i_event) {
-    switch (i_event->event_type)
+static void handleEvent(event_type_i* ievent) {
+    switch (ievent->event_type)
     {
     case KeyEvent:
-        handleKeyEvent((key_event_t*)i_event);
+        handleKeyEvent((key_event_t*)ievent);
         break;
     default:
         break;

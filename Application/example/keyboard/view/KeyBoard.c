@@ -52,13 +52,13 @@ static void special_event_handler(lv_event_t * e) {
             break;
         }
         key_event_t event = {
-            .i_event = {
+            .ievent = {
                 .event_type = KeyEvent,
                 .destination = w,
             },
             .key_id = id,
         };
-        getEventsManagerInterface()->postEvent(&event.i_event);
+        getEventsManagerInterface()->postEvent(&event.ievent);
     }
 }
 
@@ -66,13 +66,13 @@ static void generic_event_handler(lv_event_t * e) {
     lv_obj_t* obj = lv_event_get_target(e);
     if (e->code == LV_EVENT_CLICKED) {
         key_event_t event = {
-            .i_event = {
+            .ievent = {
                 .event_type = KeyEvent,
                 .destination = EndWindow,
             },
             .key_id = generic_key_id[lv_btnmatrix_get_selected_btn(obj)],
         };
-        getEventsManagerInterface()->postEvent(&event.i_event);
+        getEventsManagerInterface()->postEvent(&event.ievent);
     }
 }
 

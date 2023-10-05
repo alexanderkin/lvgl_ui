@@ -37,11 +37,11 @@ static void deleteChar() {
     lv_textarea_del_char(le.input_area);
 }
 
-static void textSelectLeft() {
+static void selectLeft() {
     lv_textarea_cursor_left(le.input_area);
 }
 
-static void textSelectRight() {
+static void selectRight() {
     lv_textarea_cursor_right(le.input_area);
 }
 
@@ -49,7 +49,7 @@ static const char* getCurrentInput() {
     return lv_textarea_get_text(le.input_area);
 }
 
-static void clearInput() {
+static void clearCurrentInput() {
     lv_textarea_set_text(le.input_area, "");
 }
 
@@ -136,10 +136,10 @@ void initLineEdit(lv_obj_t* parent) {
 
     le.addChar = addChar;
     le.deleteChar = deleteChar;
-    le.textSelectLeft = textSelectLeft;
-    le.textSelectRight = textSelectRight;
+    le.selectLeft = selectLeft;
+    le.selectRight = selectRight;
     le.getCurrentInput = getCurrentInput;
-    le.clearInput = clearInput;
+    le.clearCurrentInput = clearCurrentInput;
     
     getWindowsManagerInterface()->registerPopupWindow(&le.controller, LineEditWindow);
 }
