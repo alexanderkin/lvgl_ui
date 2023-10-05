@@ -9,7 +9,7 @@ typedef struct IWindowController {
     lv_obj_t* (*getContainer)();
     void (*onShow)();
     const char* (*getWindowName)();
+    void* (*getWindowInterface)();
 } window_controller_i;
-
 
 #endif // WINDOWCONTROLLER_H

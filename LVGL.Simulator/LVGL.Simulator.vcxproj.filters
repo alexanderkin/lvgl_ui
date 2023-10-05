@@ -756,6 +756,18 @@
     <ClInclude Include="..\Application\generic\macro.h">
       <Filter>Application\generic</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\example\first\interface\IFirstWindow.h">
+      <Filter>Application\example\first\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\lineedit\interface\ILineEdit.h">
+      <Filter>Application\example\lineedit\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\second\interface\ISecondWindow.h">
+      <Filter>Application\example\second\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\third\interface\IThirdWindow.h">
+      <Filter>Application\example\third\interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -7094,6 +7106,18 @@
     </Filter>
     <Filter Include="Application\example\lineedit\view">
       <UniqueIdentifier>{2050c3e7-5011-43ee-80cc-709638179097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\first\interface">
+      <UniqueIdentifier>{93520015-ea10-4369-9d87-d5d6fee5fcf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\lineedit\interface">
+      <UniqueIdentifier>{41d31f0d-46ba-407e-b645-8b58fca820ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\second\interface">
+      <UniqueIdentifier>{4446da28-ee93-4d79-82e5-1c4547367f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\third\interface">
+      <UniqueIdentifier>{6fb01b6e-ce94-41df-bd2f-36951ba43234}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

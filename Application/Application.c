@@ -16,12 +16,12 @@ void initMainApplication(void) {
     initWindowsManager();
     initEventsManager();
     initFirstWindow(screen);
-    initFirstPresenter(getWindowsManagerInterface()->getWindow(FirstWindow));
+    initFirstPresenter(getWindowsManagerInterface()->getWindowInterface(FirstWindow));
     initSecondWindow(screen);
-    initSecondPresenter(getWindowsManagerInterface()->getWindow(SecondWindow));
+    initSecondPresenter(getWindowsManagerInterface()->getWindowInterface(SecondWindow));
     initThirdWindow(screen);
-    initThirdPresenter(getWindowsManagerInterface()->getWindow(ThirdWindow));
+    initThirdPresenter(getWindowsManagerInterface()->getWindowInterface(ThirdWindow));
     initLineEdit(screen);
-    initLineEditPresenter(getWindowsManagerInterface()->getPopupWindow(LineEditWindow));
+    initLineEditPresenter(getWindowsManagerInterface()->getPopupWindowInterface(LineEditWindow));
     initKeyBoard(screen);
 }

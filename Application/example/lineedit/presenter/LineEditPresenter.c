@@ -21,27 +21,27 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyNum7:
     case KeyNum8:
     case KeyNum9:
-        lep.popup->addChar(event->key_id - KeyNum0 + 48);
+        lep.popupInterface->addChar(event->key_id - KeyNum0 + 48);
         break;
     case KeyDot:
-        lep.popup->addChar('.');
+        lep.popupInterface->addChar('.');
         break;
     case KeyBackspace:
-        lep.popup->deleteChar();
+        lep.popupInterface->deleteChar();
         break;
     case KeyEnter:
-        const char* text = lep.popup->getCurrentInput();
+        const char* text = lep.popupInterface->getCurrentInput();
         getWindowsManagerInterface()->hidePopupWindow(LineEditWindow);
         double value = atof(text);
         printf("Current input = %s, value = %lf\n", text, value);
         //字符串指针，用完之后在clear
-        lep.popup->clearCurrentInput();
+        lep.popupInterface->clearCurrentInput();
         break;
     case KeyLeft:
-        lep.popup->selectLeft();
+        lep.popupInterface->selectLeft();
         break;
     case KeyRight:
-        lep.popup->selectRight();
+        lep.popupInterface->selectRight();
         break;
     default:
         break;
@@ -59,8 +59,8 @@ static void handleEvent(event_type_i* ievent) {
     }
 }
 
-void initLineEditPresenter(line_edit_t* popup) {
-    lep.popup = popup;
+void initLineEditPresenter(line_edit_i* popupInterface) {
+    lep.popupInterface = popupInterface;
     lep.controller.handleEvent = handleEvent;
     getEventsManagerInterface()->registerPopupEventHandler(&lep.controller, LineEditWindow);
 }

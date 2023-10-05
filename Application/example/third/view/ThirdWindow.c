@@ -17,6 +17,10 @@ static lv_obj_t* getContainer() {
     return tw.container;
 }
 
+static void* getWindowInterface() {
+    return &tw.twi;
+}
+
 void initThirdWindow(lv_obj_t* parent) {
     lv_style_init(&tw.style);
     lv_style_set_radius(&tw.style, 0);
@@ -31,12 +35,14 @@ void initThirdWindow(lv_obj_t* parent) {
     lv_obj_add_style(tw.container, &tw.style, 0);
 
     tw.label = lv_label_create(tw.container);
-    tw.setLabelText = setLabelText;
     setLabelText(tw.name);
+
+    tw.twi.setLabelText = setLabelText;
 
     tw.controller.visable = inVisable;
     tw.controller.getContainer = getContainer;
     tw.controller.getWindowName = getWindowName;
+    tw.controller.getWindowInterface = getWindowInterface;
     
     getWindowsManagerInterface()->registerWindow(&tw.controller, ThirdWindow, false);
 }

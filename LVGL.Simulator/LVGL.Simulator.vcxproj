@@ -260,13 +260,17 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lv_drivers\win32drv\win32drv.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lv_drivers\win_drv.h" />
     <ClInclude Include="..\Application\Application.h" />
+    <ClInclude Include="..\Application\example\first\interface\IFirstWindow.h" />
     <ClInclude Include="..\Application\example\first\presenter\FirstPresenter.h" />
     <ClInclude Include="..\Application\example\first\view\FirstWindow.h" />
     <ClInclude Include="..\Application\example\keyboard\view\KeyBoard.h" />
+    <ClInclude Include="..\Application\example\lineedit\interface\ILineEdit.h" />
     <ClInclude Include="..\Application\example\lineedit\presenter\LineEditPresenter.h" />
     <ClInclude Include="..\Application\example\lineedit\view\LineEdit.h" />
+    <ClInclude Include="..\Application\example\second\interface\ISecondWindow.h" />
     <ClInclude Include="..\Application\example\second\presenter\SecondPresenter.h" />
     <ClInclude Include="..\Application\example\second\view\SecondWindow.h" />
+    <ClInclude Include="..\Application\example\third\interface\IThirdWindow.h" />
     <ClInclude Include="..\Application\example\third\presenter\ThirdPresenter.h" />
     <ClInclude Include="..\Application\example\third\view\ThirdWindow.h" />
     <ClInclude Include="..\Application\generic\enum.h" />

@@ -16,7 +16,7 @@ static void handleKeyEvent(key_event_t* event) {
         }
         break;
     case KeySelect:
-        fp.window->setLabelText("First KeySelect");
+        fp.windowInterface->setLabelText("First KeySelect");
         break;
     case KeyNum0:
     case KeyNum1:
@@ -32,16 +32,16 @@ static void handleKeyEvent(key_event_t* event) {
         getEventsManagerInterface()->postEvent(&(event->ievent));
         break;
     case KeyLeft:
-        fp.window->spinboxSelectLeft(fp.window->spinbox);
+        fp.windowInterface->spinboxSelectLeft(fp.windowInterface->getSpinbox());
         break;
     case KeyRight:
-        fp.window->spinboxSelectRight(fp.window->spinbox);
+        fp.windowInterface->spinboxSelectRight(fp.windowInterface->getSpinbox());
         break;
     case KeyUp:
-        fp.window->spinboxSelectUp(fp.window->spinbox);
+        fp.windowInterface->spinboxSelectUp(fp.windowInterface->getSpinbox());
         break;
     case KeyDown:
-        fp.window->spinboxSelectDown(fp.window->spinbox);
+        fp.windowInterface->spinboxSelectDown(fp.windowInterface->getSpinbox());
         break;
     default:
         break;
@@ -59,8 +59,8 @@ static void handleEvent(event_type_i* ievent) {
     }
 }
 
-void initFirstPresenter(first_window_t* window) {
-    fp.window = window;
+void initFirstPresenter(first_window_i* windowInterface) {
+    fp.windowInterface = windowInterface;
     fp.controller.handleEvent = handleEvent;
     getEventsManagerInterface()->registerEventHandler(&fp.controller, FirstWindow);
 }

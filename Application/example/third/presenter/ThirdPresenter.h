@@ -1,14 +1,14 @@
 #ifndef THIRDPRESENTER_H
 #define THIRDPRESENTER_H
 
-#include "../view/ThirdWindow.h"
+#include "../interface/IThirdWindow.h"
 #include "../../../interface/IEventController.h"
 
 typedef struct ThirdPresenter {
     event_controller_i controller;
-    third_window_t* window;
+    third_window_i* windowInterface;
 } third_presenter_t;
 
-void initThirdPresenter(third_window_t* window);
+void initThirdPresenter(third_window_i* windowInterface);
 
 #endif // THIRDPRESENTER_H

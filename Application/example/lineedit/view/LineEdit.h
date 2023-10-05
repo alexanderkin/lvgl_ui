@@ -2,11 +2,10 @@
 #define LINEEDIT_H
 
 #include "../../../generic/enum.h"
+#include "../interface/ILineEdit.h"
 #include "../../../interface/IWindowController.h"
-#include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct LineEdit {
-    window_controller_i controller;
     lv_obj_t* container;
     lv_style_t container_style;
     lv_obj_t* area;
@@ -20,12 +19,8 @@ typedef struct LineEdit {
     lv_style_t input_style;
     char* name;
     on_off_t hasDot;
-    void (*addChar)(const char c);
-    void (*deleteChar)();
-    void (*selectLeft)();
-    void (*selectRight)();
-    const char* (*getCurrentInput)();
-    void (*clearCurrentInput)();
+    line_edit_i lei;
+    window_controller_i controller;
 } line_edit_t;
 
 void initLineEdit(lv_obj_t* parent);

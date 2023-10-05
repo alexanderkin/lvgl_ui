@@ -20,8 +20,8 @@ static void hideWindow(windows_t w) {
     lv_obj_add_flag(wm.windows_stack[w]->getContainer(), LV_OBJ_FLAG_HIDDEN);
 }
 
-static void* getWindow(windows_t w) {
-    return (void*)wm.windows_stack[w];
+static void* getWindowInterface(windows_t w) {
+    return (void*)wm.windows_stack[w]->getWindowInterface();
 }
 
 static windows_t getActivedWindow() {
@@ -77,8 +77,8 @@ static void showPopupWindow(popup_windows_t p) {
     }
 }
 
-static void* getPopupWindow(popup_windows_t p) {
-    return (void*)wm.popup_stack[p];
+static void* getPopupWindowInterface(popup_windows_t p) {
+    return (void*)wm.popup_stack[p]->getWindowInterface();
 }
 
 static popup_windows_t getActivedPopupWindow() {
@@ -102,20 +102,20 @@ void initWindowsManager() {
     wm.mainWindow = EndWindow;
     wm.activedWindow = EndWindow;
     memset(wm.windows_stack, 0, sizeof(wm.windows_stack));
-    wm.wmi.getWindow = getWindow;
     wm.wmi.getActivedWindow = getActivedWindow;
-    wm.wmi.switchActivedWindow = switchActivedWindow;
+    wm.wmi.getWindowInterface = getWindowInterface;
     wm.wmi.getWindowController = getWindowController;
+    wm.wmi.switchActivedWindow = switchActivedWindow;
     wm.wmi.registerWindow = registerWindow;
 
     wm.wmi.getActivedWindowsType = getActivedWindowsType;
 
     wm.activedPopupWindow = EndPopupWindow;
     memset(wm.popup_stack, 0, sizeof(wm.popup_stack));
+    wm.wmi.getActivedPopupWindow = getActivedPopupWindow;
+    wm.wmi.getPopupWindowInterface = getPopupWindowInterface;
+    wm.wmi.getPopupWindowController = getPopupWindowController;
     wm.wmi.showPopupWindow = showPopupWindow;
     wm.wmi.hidePopupWindow = hidePopupWindow;
-    wm.wmi.getPopupWindow = getPopupWindow;
-    wm.wmi.getActivedPopupWindow = getActivedPopupWindow;
-    wm.wmi.getPopupWindowController = getPopupWindowController;
     wm.wmi.registerPopupWindow = registerPopupWindow;
 }

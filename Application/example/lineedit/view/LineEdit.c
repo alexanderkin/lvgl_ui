@@ -53,6 +53,10 @@ static void clearCurrentInput() {
     lv_textarea_set_text(le.input_area, "");
 }
 
+static void* getWindowInterface() {
+    return &le.lei;
+}
+
 void initLineEdit(lv_obj_t* parent) {
     lv_style_init(&le.container_style);
     lv_style_set_radius(&le.container_style, 0);
@@ -129,17 +133,18 @@ void initLineEdit(lv_obj_t* parent) {
     lv_textarea_set_accepted_chars(le.input_area, "0123456789.");
     lv_obj_set_grid_cell(le.input_area, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 1, 1);
 
+    le.lei.addChar = addChar;
+    le.lei.deleteChar = deleteChar;
+    le.lei.selectLeft = selectLeft;
+    le.lei.selectRight = selectRight;
+    le.lei.getCurrentInput = getCurrentInput;
+    le.lei.clearCurrentInput = clearCurrentInput;
+
     le.controller.visable = inVisable;
     le.controller.getContainer = getContainer;
-    le.controller.getWindowName = getWindowName;
     le.controller.onShow = onShow;
-
-    le.addChar = addChar;
-    le.deleteChar = deleteChar;
-    le.selectLeft = selectLeft;
-    le.selectRight = selectRight;
-    le.getCurrentInput = getCurrentInput;
-    le.clearCurrentInput = clearCurrentInput;
+    le.controller.getWindowName = getWindowName;
+    le.controller.getWindowInterface = getWindowInterface;
     
     getWindowsManagerInterface()->registerPopupWindow(&le.controller, LineEditWindow);
 }

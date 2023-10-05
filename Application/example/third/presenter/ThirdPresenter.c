@@ -18,19 +18,19 @@ static void handleKeyEvent(key_event_t* event) {
         }
         break;
     case KeySelect:
-        tp.window->setLabelText("Third KeySelect");
+        tp.windowInterface->setLabelText("Third KeySelect");
         break;
     case KeyLeft:
-        tp.window->setLabelText("Third KeyLeft");
+        tp.windowInterface->setLabelText("Third KeyLeft");
         break;
     case KeyRight:
-        tp.window->setLabelText("Third KeyRight");
+        tp.windowInterface->setLabelText("Third KeyRight");
         break;
     case KeyUp:
-        tp.window->setLabelText("Third KeyUp");
+        tp.windowInterface->setLabelText("Third KeyUp");
         break;
     case KeyDown:
-        tp.window->setLabelText("Third KeyDown");
+        tp.windowInterface->setLabelText("Third KeyDown");
         break;
     default:
         break;
@@ -48,8 +48,8 @@ static void handleEvent(event_type_i* ievent) {
     }
 }
 
-void initThirdPresenter(third_window_t* window) {
-    tp.window = window;
+void initThirdPresenter(third_window_i* windowInterface) {
+    tp.windowInterface = windowInterface;
     tp.controller.handleEvent = handleEvent;
     getEventsManagerInterface()->registerEventHandler(&tp.controller, ThirdWindow);
 }

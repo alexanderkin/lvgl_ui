@@ -33,6 +33,14 @@ static void spinboxSelectDown(lv_obj_t* spinbox) {
     lv_spinbox_decrement(spinbox);
 }
 
+static lv_obj_t* getSpinbox() {
+    return fw.spinbox;
+}
+
+static void* getWindowInterface() {
+    return &fw.fwi;
+}
+
 void initFirstWindow(lv_obj_t* parent) {
     lv_style_init(&fw.style);
     lv_style_set_radius(&fw.style, 0);
@@ -49,8 +57,6 @@ void initFirstWindow(lv_obj_t* parent) {
     fw.label = lv_label_create(fw.container);
     lv_obj_set_size(fw.label, 750, 100);
     lv_obj_set_pos(fw.label, 0, 0);
-    fw.setLabelText = setLabelText;
-    setLabelText(fw.name);
 
     fw.spinbox = lv_spinbox_create(fw.container);
     lv_spinbox_set_range(fw.spinbox, -1000, 25000);
@@ -59,14 +65,19 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_size(fw.spinbox, 750, 100);
     lv_obj_set_pos(fw.spinbox, 0, 100);
 
+    setLabelText(fw.name);
+
+    fw.fwi.spinboxSelectLeft = spinboxSelectLeft;
+    fw.fwi.spinboxSelectRight = spinboxSelectRight;
+    fw.fwi.spinboxSelectUp = spinboxSelectUp;
+    fw.fwi.spinboxSelectDown = spinboxSelectDown;
+    fw.fwi.setLabelText = setLabelText;
+    fw.fwi.getSpinbox = getSpinbox;
+
     fw.controller.visable = inVisable;
     fw.controller.getContainer = getContainer;
     fw.controller.getWindowName = getWindowName;
-
-    fw.spinboxSelectLeft = spinboxSelectLeft;
-    fw.spinboxSelectRight = spinboxSelectRight;
-    fw.spinboxSelectUp = spinboxSelectUp;
-    fw.spinboxSelectDown = spinboxSelectDown;
+    fw.controller.getWindowInterface = getWindowInterface;
 
     getWindowsManagerInterface()->registerWindow(&fw.controller, FirstWindow, true);
 }

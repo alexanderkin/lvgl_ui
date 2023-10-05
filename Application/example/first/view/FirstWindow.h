@@ -2,21 +2,17 @@
 #define FIRSTWINDOW_H
 
 #include "../../../generic/enum.h"
+#include "../interface/IFirstWindow.h"
 #include "../../../interface/IWindowController.h"
-#include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct FirstWindow {
-    window_controller_i controller;
     lv_obj_t* container;
     lv_style_t style;
     lv_obj_t* label;
     lv_obj_t* spinbox;
-    void (*spinboxSelectLeft)(lv_obj_t* spinbox);
-    void (*spinboxSelectRight)(lv_obj_t* spinbox);
-    void (*spinboxSelectUp)(lv_obj_t* spinbox);
-    void (*spinboxSelectDown)(lv_obj_t* spinbox);
     char* name;
-    void (*setLabelText)(const char* text);
+    first_window_i fwi;
+    window_controller_i controller;
 } first_window_t;
 
 void initFirstWindow(lv_obj_t* parent);

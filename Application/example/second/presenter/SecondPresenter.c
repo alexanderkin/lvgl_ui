@@ -18,19 +18,19 @@ static void handleKeyEvent(key_event_t* event) {
         }
         break;
     case KeySelect:
-        sp.window->setLabelText("Second KeySelect");
+        sp.windowInterface->setLabelText("Second KeySelect");
         break;
     case KeyLeft:
-        sp.window->setLabelText("Second KeyLeft");
+        sp.windowInterface->setLabelText("Second KeyLeft");
         break;
     case KeyRight:
-        sp.window->setLabelText("Second KeyRight");
+        sp.windowInterface->setLabelText("Second KeyRight");
         break;
     case KeyUp:
-        sp.window->setLabelText("Second KeyUp");
+        sp.windowInterface->setLabelText("Second KeyUp");
         break;
     case KeyDown:
-        sp.window->setLabelText("Second KeyDown");
+        sp.windowInterface->setLabelText("Second KeyDown");
         break;
     default:
         break;
@@ -48,8 +48,8 @@ static void handleEvent(event_type_i* ievent) {
     }
 }
 
-void initSecondPresenter(second_window_t* window) {
-    sp.window = window;
+void initSecondPresenter(second_window_i* windowInterface) {
+    sp.windowInterface = windowInterface;
     sp.controller.handleEvent = handleEvent;
     getEventsManagerInterface()->registerEventHandler(&sp.controller, SecondWindow);
 }

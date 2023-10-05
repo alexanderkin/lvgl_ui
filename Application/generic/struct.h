@@ -3,7 +3,7 @@
 
 #include "./enum.h"
 
-//通用事件接口，所有事件结构体第一个成员都要是它
+//通用事件接口，所有事件类型结构体第一个成员都要是它
 typedef struct EventTypeInterface {
     event_type_t event_type;        //事件类型
     windows_t destination;          //事件发送的目的地，指定为EndWindow则是发送到当前活动窗口
