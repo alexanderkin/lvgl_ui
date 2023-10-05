@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdint.h>
 #include "./FirstPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
@@ -52,6 +53,8 @@ static void handleKeyEvent(key_event_t* event) {
 static void handleValueChangeEvent(value_change_event_t* event) {
     double v = (double)event->value / pow(10, event->decimals);
     printf("First value = %lld, decimals = %d, result = %f\n", event->value, event->decimals, v);
+    fp.modelInterface->setValue((uint64_t)v);
+    printf("Model value = %lld\n", fp.modelInterface->getValue());
 }
 
 static void handleEvent(event_type_i* ievent) {
@@ -68,7 +71,8 @@ static void handleEvent(event_type_i* ievent) {
     }
 }
 
-void initFirstPresenter(first_window_i* windowInterface) {
+void initFirstPresenter(first_model_i* modelInterface, first_window_i* windowInterface) {
+    fp.modelInterface = modelInterface;
     fp.windowInterface = windowInterface;
     fp.controller.handleEvent = handleEvent;
     getEventsManagerInterface()->registerEventHandler(&fp.controller, FirstWindow);

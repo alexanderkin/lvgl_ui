@@ -771,6 +771,21 @@
     <ClInclude Include="..\Application\tools\StringTools.h">
       <Filter>Application\tools</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\example\first\interface\IFirstModel.h">
+      <Filter>Application\example\first\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\IModelController.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\interface\IModelsManager.h">
+      <Filter>Application\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\manager\ModelsManager.h">
+      <Filter>Application\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\first\model\FirstModel.h">
+      <Filter>Application\example\first\model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2160,6 +2175,12 @@
     </ClCompile>
     <ClCompile Include="..\Application\tools\StringTools.c">
       <Filter>Application\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\manager\ModelsManager.c">
+      <Filter>Application\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\first\model\FirstModel.c">
+      <Filter>Application\example\first\model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -7127,6 +7148,9 @@
     </Filter>
     <Filter Include="Application\tools">
       <UniqueIdentifier>{18d4e462-4342-4524-a575-03fd124ef791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\first\model">
+      <UniqueIdentifier>{0c167e85-d335-446c-bed6-e87842cd5fd8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -260,7 +260,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lv_drivers\win32drv\win32drv.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lv_drivers\win_drv.h" />
     <ClInclude Include="..\Application\Application.h" />
+    <ClInclude Include="..\Application\example\first\interface\IFirstModel.h" />
     <ClInclude Include="..\Application\example\first\interface\IFirstWindow.h" />
+    <ClInclude Include="..\Application\example\first\model\FirstModel.h" />
     <ClInclude Include="..\Application\example\first\presenter\FirstPresenter.h" />
     <ClInclude Include="..\Application\example\first\view\FirstWindow.h" />
     <ClInclude Include="..\Application\example\keyboard\view\KeyBoard.h" />
@@ -278,9 +280,12 @@
     <ClInclude Include="..\Application\generic\struct.h" />
     <ClInclude Include="..\Application\interface\IEventController.h" />
     <ClInclude Include="..\Application\interface\IEventsManager.h" />
+    <ClInclude Include="..\Application\interface\IModelController.h" />
+    <ClInclude Include="..\Application\interface\IModelsManager.h" />
     <ClInclude Include="..\Application\interface\IWindowController.h" />
     <ClInclude Include="..\Application\interface\IWindowsManager.h" />
     <ClInclude Include="..\Application\manager\EventsManager.h" />
+    <ClInclude Include="..\Application\manager\ModelsManager.h" />
     <ClInclude Include="..\Application\manager\WindowsManager.h" />
     <ClInclude Include="..\Application\tools\StringTools.h" />
     <ClInclude Include="lv_conf.h" />
@@ -744,6 +749,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lv_drivers\win32drv\win32drv.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lv_drivers\win_drv.c" />
     <ClCompile Include="..\Application\Application.c" />
+    <ClCompile Include="..\Application\example\first\model\FirstModel.c" />
     <ClCompile Include="..\Application\example\first\presenter\FirstPresenter.c" />
     <ClCompile Include="..\Application\example\first\view\FirstWindow.c" />
     <ClCompile Include="..\Application\example\keyboard\view\KeyBoard.c" />
@@ -754,6 +760,7 @@
     <ClCompile Include="..\Application\example\third\presenter\ThirdPresenter.c" />
     <ClCompile Include="..\Application\example\third\view\ThirdWindow.c" />
     <ClCompile Include="..\Application\manager\EventsManager.c" />
+    <ClCompile Include="..\Application\manager\ModelsManager.c" />
     <ClCompile Include="..\Application\manager\WindowsManager.c" />
     <ClCompile Include="..\Application\tools\StringTools.c" />
     <ClCompile Include="LVGL.Simulator.cpp" />

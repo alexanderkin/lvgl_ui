@@ -9,7 +9,7 @@ typedef struct IFirstWindow {
     void (*spinboxSelectRight)(lv_obj_t* spinbox);
     void (*spinboxSelectUp)(lv_obj_t* spinbox);
     void (*spinboxSelectDown)(lv_obj_t* spinbox);
-        void (*setLabelText)(const char* text);
+    void (*setLabelText)(const char* text);
 } first_window_i;
 
 #endif // IFIRSTWINDOW_H

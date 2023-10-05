@@ -38,12 +38,12 @@ typedef enum KeyTypeEnum {
 
 typedef enum EventTypeEnum {
     KeyEvent,
-    ValueChangeEvent
+    ValueChangeEvent,
 } event_type_t;
 
 typedef enum WindowsType {
     Window,
-    PopupWindow
+    PopupWindow,
 } windows_type_t;
 
 typedef enum Windows {
@@ -58,5 +58,10 @@ typedef enum PopupWindows {
     WarningWindow,
     EndPopupWindow,
 } popup_windows_t;
+
+typedef enum Models {
+    FirstModel,
+    EndModel,
+} models_t;
 
 #endif // ENUM_H

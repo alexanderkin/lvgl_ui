@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <string.h>
 #include "./WindowsManager.h"
 #include "../../LVGL.Simulator/lvgl/lvgl.h"
 
@@ -21,7 +22,7 @@ static void hideWindow(windows_t w) {
 }
 
 static void* getWindowInterface(windows_t w) {
-    return (void*)wm.windows_stack[w]->getWindowInterface();
+    return wm.windows_stack[w]->getWindowInterface();
 }
 
 static windows_t getActivedWindow() {
@@ -78,7 +79,7 @@ static void showPopupWindow(popup_windows_t p) {
 }
 
 static void* getPopupWindowInterface(popup_windows_t p) {
-    return (void*)wm.popup_stack[p]->getWindowInterface();
+    return wm.popup_stack[p]->getWindowInterface();
 }
 
 static popup_windows_t getActivedPopupWindow() {
