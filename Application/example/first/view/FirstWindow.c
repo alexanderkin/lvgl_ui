@@ -64,15 +64,17 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_width(fw.spinbox, 100);
     lv_obj_set_size(fw.spinbox, 750, 100);
     lv_obj_set_pos(fw.spinbox, 0, 100);
+    lv_spinbox_set_range(fw.spinbox, 0, 100000);
+    lv_spinbox_set_digit_format(fw.spinbox, 5, 2);
 
     setLabelText(fw.name);
 
+    fw.fwi.getSpinbox = getSpinbox;
     fw.fwi.spinboxSelectLeft = spinboxSelectLeft;
     fw.fwi.spinboxSelectRight = spinboxSelectRight;
     fw.fwi.spinboxSelectUp = spinboxSelectUp;
     fw.fwi.spinboxSelectDown = spinboxSelectDown;
     fw.fwi.setLabelText = setLabelText;
-    fw.fwi.getSpinbox = getSpinbox;
 
     fw.controller.visable = inVisable;
     fw.controller.getContainer = getContainer;

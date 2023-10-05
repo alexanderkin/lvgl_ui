@@ -1,6 +1,7 @@
 ﻿#ifndef STRUCT_H
 #define STRUCT_H
 
+#include <stdint.h>
 #include "./enum.h"
 
 //通用事件接口，所有事件类型结构体第一个成员都要是它
@@ -11,8 +12,14 @@ typedef struct EventTypeInterface {
 
 //按键事件
 typedef struct KeyEvent {
-    event_type_i ievent;               //通用事件接口
+    event_type_i ievent;            //通用事件接口
     key_type_t key_id;              //按键id
 } key_event_t;
+
+typedef struct ValueChangeEvent {
+    event_type_i ievent;            //通用事件接口
+    uint64_t value;                 //值
+    uint8_t decimals;               //小数个数
+} value_change_event_t;
 
 #endif // STRUCT_H

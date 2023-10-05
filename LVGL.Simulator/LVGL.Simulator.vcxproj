@@ -282,6 +282,7 @@
     <ClInclude Include="..\Application\interface\IWindowsManager.h" />
     <ClInclude Include="..\Application\manager\EventsManager.h" />
     <ClInclude Include="..\Application\manager\WindowsManager.h" />
+    <ClInclude Include="..\Application\tools\StringTools.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
   <ItemGroup>
@@ -754,6 +755,7 @@
     <ClCompile Include="..\Application\example\third\view\ThirdWindow.c" />
     <ClCompile Include="..\Application\manager\EventsManager.c" />
     <ClCompile Include="..\Application\manager\WindowsManager.c" />
+    <ClCompile Include="..\Application\tools\StringTools.c" />
     <ClCompile Include="LVGL.Simulator.cpp" />
   </ItemGroup>
   <ItemGroup>

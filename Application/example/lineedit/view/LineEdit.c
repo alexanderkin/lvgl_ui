@@ -50,6 +50,7 @@ static const char* getCurrentInput() {
 }
 
 static void clearCurrentInput() {
+    le.hasDot = OFF;
     lv_textarea_set_text(le.input_area, "");
 }
 

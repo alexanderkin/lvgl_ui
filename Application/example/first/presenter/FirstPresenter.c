@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "./FirstPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
@@ -48,11 +49,19 @@ static void handleKeyEvent(key_event_t* event) {
     }
 }
 
+static void handleValueChangeEvent(value_change_event_t* event) {
+    double v = (double)event->value / pow(10, event->decimals);
+    printf("First value = %lld, decimals = %d, result = %f\n", event->value, event->decimals, v);
+}
+
 static void handleEvent(event_type_i* ievent) {
     switch (ievent->event_type)
     {
     case KeyEvent:
         handleKeyEvent((key_event_t*)ievent);
+        break;
+    case ValueChangeEvent:
+        handleValueChangeEvent((value_change_event_t*)ievent);
         break;
     default:
         break;

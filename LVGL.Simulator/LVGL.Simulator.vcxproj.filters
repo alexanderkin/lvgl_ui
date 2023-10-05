@@ -768,6 +768,9 @@
     <ClInclude Include="..\Application\example\third\interface\IThirdWindow.h">
       <Filter>Application\example\third\interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\tools\StringTools.h">
+      <Filter>Application\tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2154,6 +2157,9 @@
     </ClCompile>
     <ClCompile Include="..\Application\example\lineedit\presenter\LineEditPresenter.c">
       <Filter>Application\example\lineedit\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\tools\StringTools.c">
+      <Filter>Application\tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -7118,6 +7124,9 @@
     </Filter>
     <Filter Include="Application\example\third\interface">
       <UniqueIdentifier>{6fb01b6e-ce94-41df-bd2f-36951ba43234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\tools">
+      <UniqueIdentifier>{18d4e462-4342-4524-a575-03fd124ef791}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

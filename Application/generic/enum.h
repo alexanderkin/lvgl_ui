@@ -38,6 +38,7 @@ typedef enum KeyTypeEnum {
 
 typedef enum EventTypeEnum {
     KeyEvent,
+    ValueChangeEvent
 } event_type_t;
 
 typedef enum WindowsType {
