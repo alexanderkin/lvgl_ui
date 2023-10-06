@@ -5,6 +5,7 @@
 #include "./example/first/model/FirstModel.h"
 #include "./example/first/view/FirstWindow.h"
 #include "./example/first/presenter/FirstPresenter.h"
+#include "./example/second/model/SecondModel.h"
 #include "./example/second/view/SecondWindow.h"
 #include "./example/second/presenter/SecondPresenter.h"
 #include "./example/third/view/ThirdWindow.h"
@@ -18,19 +19,29 @@ void initMainApplication(void) {
     initModelsManager();
     initEventsManager();
     initWindowsManager();
+
     initFirstModel();
     initFirstWindow(screen);
     initFirstPresenter(
         getModelsManagerInterface()->getModelInterface(FirstModel), 
         getWindowsManagerInterface()->getWindowInterface(FirstWindow)
     );
+
+    initSecondModel();
     initSecondWindow(screen);
-    initSecondPresenter(getWindowsManagerInterface()->getWindowInterface(SecondWindow));
+    initSecondPresenter(
+        getModelsManagerInterface()->getModelInterface(SecondModel),
+        getWindowsManagerInterface()->getWindowInterface(SecondWindow)
+    );
+
     initThirdWindow(screen);
     initThirdPresenter(getWindowsManagerInterface()->getWindowInterface(ThirdWindow));
+    
     initLineEdit(screen);
     initLineEditPresenter(getWindowsManagerInterface()->getPopupWindowInterface(LineEditWindow));
+    
     initKeyBoard(screen);
+    
     getModelsManagerInterface()->readTable();
 }
 

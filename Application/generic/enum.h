@@ -61,6 +61,7 @@ typedef enum PopupWindows {
 
 typedef enum Models {
     FirstModel,
+    SecondModel,
     EndModel,
 } models_t;
 

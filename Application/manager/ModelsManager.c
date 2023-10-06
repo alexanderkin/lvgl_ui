@@ -6,8 +6,10 @@ static models_manager_t mmt;
 
 static void readTable() {
     FILE* fp = fopen("table.bin", "rb");
-    if (fp == NULL)
+    if (fp == NULL) {
+        printf("table file not found\n");
         return;
+    }
     for (int i = 0; i < EndModel; i++) {
         if (mmt.model_stack[i] != NULL) {
             mmt.model_stack[i]->readData(fp);

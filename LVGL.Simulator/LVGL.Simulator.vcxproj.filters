@@ -786,6 +786,12 @@
     <ClInclude Include="..\Application\example\first\model\FirstModel.h">
       <Filter>Application\example\first\model</Filter>
     </ClInclude>
+    <ClInclude Include="..\Application\example\second\model\SecondModel.h">
+      <Filter>Application\example\second\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\example\second\interface\ISecondModel.h">
+      <Filter>Application\example\second\interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -2181,6 +2187,9 @@
     </ClCompile>
     <ClCompile Include="..\Application\example\first\model\FirstModel.c">
       <Filter>Application\example\first\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\example\second\model\SecondModel.c">
+      <Filter>Application\example\second\model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -7151,6 +7160,9 @@
     </Filter>
     <Filter Include="Application\example\first\model">
       <UniqueIdentifier>{0c167e85-d335-446c-bed6-e87842cd5fd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\example\second\model">
+      <UniqueIdentifier>{c1b53149-e6c7-4dfb-943d-a80217fa26e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

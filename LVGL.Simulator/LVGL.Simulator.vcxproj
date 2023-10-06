@@ -269,7 +269,9 @@
     <ClInclude Include="..\Application\example\lineedit\interface\ILineEdit.h" />
     <ClInclude Include="..\Application\example\lineedit\presenter\LineEditPresenter.h" />
     <ClInclude Include="..\Application\example\lineedit\view\LineEdit.h" />
+    <ClInclude Include="..\Application\example\second\interface\ISecondModel.h" />
     <ClInclude Include="..\Application\example\second\interface\ISecondWindow.h" />
+    <ClInclude Include="..\Application\example\second\model\SecondModel.h" />
     <ClInclude Include="..\Application\example\second\presenter\SecondPresenter.h" />
     <ClInclude Include="..\Application\example\second\view\SecondWindow.h" />
     <ClInclude Include="..\Application\example\third\interface\IThirdWindow.h" />
@@ -755,6 +757,7 @@
     <ClCompile Include="..\Application\example\keyboard\view\KeyBoard.c" />
     <ClCompile Include="..\Application\example\lineedit\presenter\LineEditPresenter.c" />
     <ClCompile Include="..\Application\example\lineedit\view\LineEdit.c" />
+    <ClCompile Include="..\Application\example\second\model\SecondModel.c" />
     <ClCompile Include="..\Application\example\second\presenter\SecondPresenter.c" />
     <ClCompile Include="..\Application\example\second\view\SecondWindow.c" />
     <ClCompile Include="..\Application\example\third\presenter\ThirdPresenter.c" />
