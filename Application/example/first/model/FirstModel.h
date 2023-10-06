@@ -5,8 +5,12 @@
 #include "../interface/IFirstModel.h"
 #include "../../../interface/IModelController.h"
 
-typedef struct FirstModel {
+typedef struct FirstModelData {
     uint64_t value;
+} first_model_data_t;
+
+typedef struct FirstModel {
+    first_model_data_t data;
     first_model_i fmi;
     model_controller_i controller;
 } first_model_t;

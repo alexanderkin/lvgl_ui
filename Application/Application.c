@@ -31,4 +31,9 @@ void initMainApplication(void) {
     initLineEdit(screen);
     initLineEditPresenter(getWindowsManagerInterface()->getPopupWindowInterface(LineEditWindow));
     initKeyBoard(screen);
+    getModelsManagerInterface()->readTable();
+}
+
+void saveTables() {
+    getModelsManagerInterface()->saveTable();
 }

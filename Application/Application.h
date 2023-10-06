@@ -7,7 +7,9 @@
 extern "C" {
 #endif
 
-void initMainApplication(void);
+void initMainApplication();
+
+void saveTables();
 
 #ifdef __cplusplus
 } /* extern "C" */

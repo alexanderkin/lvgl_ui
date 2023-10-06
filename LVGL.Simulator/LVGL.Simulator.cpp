@@ -54,6 +54,7 @@ bool single_display_mode_initialization()
 
 int main()
 {
+    uint64_t count = 0;
     lv_init();
 
     if (!single_display_mode_initialization())
@@ -67,7 +68,12 @@ int main()
     while (!lv_win32_quit_signal)
     {
         lv_task_handler();
+        if (count == 643) {
+            count = 0;
+            saveTables();
+        }
         Sleep(1);
+        count++;
     }
 
     return 0;

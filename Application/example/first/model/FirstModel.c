@@ -6,11 +6,11 @@
 first_model_t fm;
 
 static void setValue(uint64_t v) {
-    fm.value = v;
+    fm.data.value = v;
 }
 
 static uint64_t getValue() {
-    return fm.value;
+    return fm.data.value;
 }
 
 static void* getModelInterface() {
@@ -18,7 +18,21 @@ static void* getModelInterface() {
 }
 
 static void reset() {
-    fm.value = 0;
+    fm.data.value = 0;
+}
+
+static void readData(FILE* fp) {
+    if (fp != NULL) {
+        fread(&fm.data, 1, sizeof(first_model_data_t), fp);
+    }
+    printf("First Model read value = %lld\n", fm.data.value);
+}
+
+static void saveData(FILE* fp) {
+    printf("First Model save value = %lld\n", fm.data.value);
+    if (fp != NULL) {
+        fwrite(&fm.data, sizeof(first_model_data_t), 1, fp);
+    }
 }
 
 void initFirstModel() {
@@ -27,6 +41,8 @@ void initFirstModel() {
     fm.fmi.setValue = setValue;
     fm.fmi.getValue = getValue;
     fm.controller.getModelInterface = getModelInterface;
+    fm.controller.readData = readData;
+    fm.controller.saveData = saveData;
 
     getModelsManagerInterface()->registerModel(&fm.controller, FirstModel);
 }
