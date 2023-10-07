@@ -277,6 +277,7 @@
     <ClInclude Include="..\Application\example\third\interface\IThirdWindow.h" />
     <ClInclude Include="..\Application\example\third\presenter\ThirdPresenter.h" />
     <ClInclude Include="..\Application\example\third\view\ThirdWindow.h" />
+    <ClInclude Include="..\Application\fonts\fonts.h" />
     <ClInclude Include="..\Application\generic\enum.h" />
     <ClInclude Include="..\Application\generic\macro.h" />
     <ClInclude Include="..\Application\generic\struct.h" />

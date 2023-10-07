@@ -10,7 +10,7 @@ typedef struct FirstWindow {
     lv_style_t style;
     lv_obj_t* label;
     lv_obj_t* spinbox;
-    char* name;
+        char* name;
     first_window_i fwi;
     window_controller_i controller;
 } first_window_t;

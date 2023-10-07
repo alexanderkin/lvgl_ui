@@ -9,7 +9,24 @@
 
 static first_presenter_t fp;
 
+static void handleKeyChangeFocus(key_type_t id) {
+    switch (id)
+    {
+    case KeySelect:
+    case KeyLeft:
+    case KeyRight:
+    case KeyUp:
+    case KeyDown:
+        fp.windowInterface->spinboxCheckable(fp.windowInterface->getSpinbox(), Checked);
+        break;
+    default:
+        fp.windowInterface->spinboxCheckable(fp.windowInterface->getSpinbox(), UnCheck);
+        break;
+    }
+}
+
 static void handleKeyEvent(key_event_t* event) {
+    handleKeyChangeFocus(event->key_id);
     switch (event->key_id)
     {
     case KeyFirst:

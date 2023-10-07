@@ -1,5 +1,6 @@
 ﻿#include <stdio.h>
 #include "./FirstWindow.h"
+#include "../../../fonts/fonts.h"
 #include "../../../generic/macro.h"
 #include "../../../manager/WindowsManager.h"
 
@@ -31,6 +32,23 @@ static void spinboxSelectUp(lv_obj_t* spinbox) {
 
 static void spinboxSelectDown(lv_obj_t* spinbox) {
     lv_spinbox_decrement(spinbox);
+}
+
+static void spinboxCheckable(lv_obj_t* spinbox, checkable_t checkable) {
+    switch (checkable)
+    {
+    case Checked:
+        lv_obj_set_style_opa(spinbox, LV_OPA_COVER, LV_PART_CURSOR);
+        break;
+    case UnCheck:
+        lv_obj_set_style_opa(spinbox, LV_OPA_TRANSP, LV_PART_CURSOR);
+        lv_spinbox_set_cursor_pos(spinbox, 0);
+        break;
+    default:
+        lv_obj_set_style_opa(spinbox, LV_OPA_TRANSP, LV_PART_CURSOR);
+        lv_spinbox_set_cursor_pos(spinbox, 0);
+        break;
+    }
 }
 
 static lv_obj_t* getSpinbox() {
@@ -67,11 +85,13 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_pos(fw.spinbox, 0, 100);
     lv_spinbox_set_range(fw.spinbox, 0, 100000);
     lv_spinbox_set_digit_format(fw.spinbox, 5, 2);
+    lv_obj_set_style_anim_time(fw.spinbox, 500, LV_PART_CURSOR);
     lv_obj_set_style_text_font(fw.spinbox, &SourceHanSansAscii_Bold_30, 0);
 
     setLabelText(fw.name);
 
     fw.fwi.getSpinbox = getSpinbox;
+    fw.fwi.spinboxCheckable = spinboxCheckable;
     fw.fwi.spinboxSelectLeft = spinboxSelectLeft;
     fw.fwi.spinboxSelectRight = spinboxSelectRight;
     fw.fwi.spinboxSelectUp = spinboxSelectUp;

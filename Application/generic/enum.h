@@ -11,6 +11,11 @@ typedef enum VisableEnum {
     inVisable,
 } visable_t;
 
+typedef enum Checkable {
+    Checked,
+    UnCheck,
+} checkable_t;
+
 typedef enum KeyTypeEnum {
     KeyFirst,
     KeySecond,
