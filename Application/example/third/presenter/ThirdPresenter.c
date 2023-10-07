@@ -17,8 +17,8 @@ static void handleKeyEvent(key_event_t* event) {
             getWindowsManagerInterface()->switchActivedWindow(FirstWindow);
         }
         break;
-    case KeySelect:
-        tp.windowInterface->setLabelText("Third KeySelect");
+    case KeySelect1:
+        tp.windowInterface->setLabelText("Third KeySelect1");
         break;
     case KeyLeft:
         tp.windowInterface->setLabelText("Third KeyLeft");

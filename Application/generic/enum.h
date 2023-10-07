@@ -1,6 +1,14 @@
 ﻿#ifndef ENUM_H
 #define ENUM_H
 
+typedef enum Channel {
+    CH1,
+    CH2,
+    CH3,
+    CH4,
+    EndChannel,
+} channel_t;
+
 typedef enum ON_OFF {
     ON,
     OFF,
@@ -20,7 +28,10 @@ typedef enum KeyTypeEnum {
     KeyFirst,
     KeySecond,
     KeyThird,
-    KeySelect,
+    KeySelect1,
+    KeySelect2,
+    KeySelect3,
+    KeySelect4,
     KeyNum0,
     KeyNum1,
     KeyNum2,

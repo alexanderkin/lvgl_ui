@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <math.h>
 #include <stdint.h>
 #include "./FirstPresenter.h"
@@ -12,15 +12,18 @@ static first_presenter_t fp;
 static void handleKeyChangeFocus(key_type_t id) {
     switch (id)
     {
-    case KeySelect:
+    case KeySelect1:
+    case KeySelect2:
+    case KeySelect3:
+    case KeySelect4:
     case KeyLeft:
     case KeyRight:
     case KeyUp:
     case KeyDown:
-        fp.windowInterface->spinboxCheckable(fp.windowInterface->getSpinbox(), Checked);
+        fp.windowInterface->spinboxCheckable(Checked);
         break;
     default:
-        fp.windowInterface->spinboxCheckable(fp.windowInterface->getSpinbox(), UnCheck);
+        fp.windowInterface->spinboxCheckable(UnCheck);
         break;
     }
 }
@@ -34,8 +37,21 @@ static void handleKeyEvent(key_event_t* event) {
             getWindowsManagerInterface()->switchActivedWindow(FirstWindow);
         }
         break;
-    case KeySelect:
-        fp.windowInterface->setLabelText("First KeySelect");
+    case KeySelect1:
+        fp.windowInterface->setLabelText("First KeySelect1");
+        fp.windowInterface->selectSpinbox(CH1);
+        break;
+    case KeySelect2:
+        fp.windowInterface->setLabelText("First KeySelect2");
+        fp.windowInterface->selectSpinbox(CH2);
+        break;
+    case KeySelect3:
+        fp.windowInterface->setLabelText("First KeySelect3");
+        fp.windowInterface->selectSpinbox(CH3);
+        break;
+    case KeySelect4:
+        fp.windowInterface->setLabelText("First KeySelect4");
+        fp.windowInterface->selectSpinbox(CH4);
         break;
     case KeyNum0:
     case KeyNum1:
@@ -51,16 +67,16 @@ static void handleKeyEvent(key_event_t* event) {
         getEventsManagerInterface()->postEvent(&(event->ievent));
         break;
     case KeyLeft:
-        fp.windowInterface->spinboxSelectLeft(fp.windowInterface->getSpinbox());
+        fp.windowInterface->spinboxSelectLeft();
         break;
     case KeyRight:
-        fp.windowInterface->spinboxSelectRight(fp.windowInterface->getSpinbox());
+        fp.windowInterface->spinboxSelectRight();
         break;
     case KeyUp:
-        fp.windowInterface->spinboxSelectUp(fp.windowInterface->getSpinbox());
+        fp.windowInterface->spinboxSelectUp();
         break;
     case KeyDown:
-        fp.windowInterface->spinboxSelectDown(fp.windowInterface->getSpinbox());
+        fp.windowInterface->spinboxSelectDown();
         break;
     default:
         break;

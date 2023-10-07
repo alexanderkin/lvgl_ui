@@ -8,11 +8,13 @@
 key_board_t kb;
 
 static const char* special_key_map[] = {
-    "First", "Second", "Third", "Select", ""
+    "First",   "Second",  "Third",   "\n", 
+    "Select1", "Select2", "Select3", "Select4", ""
 };
 
 static const int special_key_id[] = {
-    KeyFirst, KeySecond, KeyThird, KeySelect
+    KeyFirst,   KeySecond,  KeyThird,
+    KeySelect1, KeySelect2, KeySelect3, KeySelect4,
 };
 
 static const char* generic_key_map[] = {

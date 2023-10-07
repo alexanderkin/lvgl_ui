@@ -6,10 +6,6 @@
 
 static first_window_t fw;
 
-static void setLabelText(const char* text) {
-    lv_label_set_text(fw.label, text);
-}
-
 static const char* getWindowName() {
     return fw.name;
 }
@@ -18,41 +14,56 @@ static lv_obj_t* getContainer() {
     return fw.container;
 }
 
-static void spinboxSelectLeft(lv_obj_t* spinbox) {
-    lv_spinbox_step_prev(spinbox);
-}
-
-static void spinboxSelectRight(lv_obj_t* spinbox) {
-    lv_spinbox_step_next(spinbox);
-}
-
-static void spinboxSelectUp(lv_obj_t* spinbox) {
-    lv_spinbox_increment(spinbox);
-}
-
-static void spinboxSelectDown(lv_obj_t* spinbox) {
-    lv_spinbox_decrement(spinbox);
-}
-
-static void spinboxCheckable(lv_obj_t* spinbox, checkable_t checkable) {
+static void spinboxCheckable(checkable_t checkable) {
+    if (fw.activedSpinbox == NULL) return;
     switch (checkable)
     {
     case Checked:
-        lv_obj_set_style_opa(spinbox, LV_OPA_COVER, LV_PART_CURSOR);
+        lv_obj_set_style_opa(fw.activedSpinbox, LV_OPA_COVER, LV_PART_CURSOR);
         break;
     case UnCheck:
-        lv_obj_set_style_opa(spinbox, LV_OPA_TRANSP, LV_PART_CURSOR);
-        lv_spinbox_set_cursor_pos(spinbox, 0);
+        lv_obj_set_style_opa(fw.activedSpinbox, LV_OPA_TRANSP, LV_PART_CURSOR);
+        lv_spinbox_set_cursor_pos(fw.activedSpinbox, 0);
+        fw.activedSpinbox = NULL;
         break;
     default:
-        lv_obj_set_style_opa(spinbox, LV_OPA_TRANSP, LV_PART_CURSOR);
-        lv_spinbox_set_cursor_pos(spinbox, 0);
+        lv_obj_set_style_opa(fw.activedSpinbox, LV_OPA_TRANSP, LV_PART_CURSOR);
+        lv_spinbox_set_cursor_pos(fw.activedSpinbox, 0);
+        fw.activedSpinbox = NULL;
         break;
     }
 }
 
-static lv_obj_t* getSpinbox() {
-    return fw.spinbox;
+static void selectSpinbox(channel_t channel) {
+    if (fw.activedSpinbox != NULL) {
+        spinboxCheckable(UnCheck);
+    }
+    fw.activedSpinbox = fw.spinbox[channel];
+    spinboxCheckable(Checked);
+}
+
+static void spinboxSelectLeft() {
+    if (fw.activedSpinbox == NULL) return;
+    lv_spinbox_step_prev(fw.activedSpinbox);
+}
+
+static void spinboxSelectRight() {
+    if (fw.activedSpinbox == NULL) return;
+    lv_spinbox_step_next(fw.activedSpinbox);
+}
+
+static void spinboxSelectUp() {
+    if (fw.activedSpinbox == NULL) return;
+    lv_spinbox_increment(fw.activedSpinbox);
+}
+
+static void spinboxSelectDown() {
+    if (fw.activedSpinbox == NULL) return;
+    lv_spinbox_decrement(fw.activedSpinbox);
+}
+
+static void setLabelText(const char* text) {
+    lv_label_set_text(fw.label, text);
 }
 
 static void* getWindowInterface() {
@@ -77,20 +88,21 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_pos(fw.label, 0, 0);
     lv_obj_set_style_text_font(fw.label, &SourceHanSansCN_Bold_20, 0);
 
-    fw.spinbox = lv_spinbox_create(fw.container);
-    lv_spinbox_set_range(fw.spinbox, -1000, 25000);
-    lv_spinbox_set_digit_format(fw.spinbox, 5, 2);
-    lv_obj_set_width(fw.spinbox, 100);
-    lv_obj_set_size(fw.spinbox, 750, 100);
-    lv_obj_set_pos(fw.spinbox, 0, 100);
-    lv_spinbox_set_range(fw.spinbox, 0, 100000);
-    lv_spinbox_set_digit_format(fw.spinbox, 5, 2);
-    lv_obj_set_style_anim_time(fw.spinbox, 500, LV_PART_CURSOR);
-    lv_obj_set_style_text_font(fw.spinbox, &SourceHanSansAscii_Bold_30, 0);
+    for (int i = 0; i < EndChannel; i++) {
+        fw.spinbox[i] = lv_spinbox_create(fw.container);
+        lv_obj_set_width(fw.spinbox[i], 100);
+        lv_obj_set_size(fw.spinbox[i], 750, 80);
+        lv_obj_set_pos(fw.spinbox[i], 0, i * 100 + 50);
+        lv_spinbox_set_range(fw.spinbox[i], 0, 100000);
+        lv_spinbox_set_digit_format(fw.spinbox[i], 5, 2);
+        lv_obj_set_style_anim_time(fw.spinbox[i], 500, LV_PART_CURSOR);
+        lv_obj_set_style_opa(fw.spinbox[i], LV_OPA_TRANSP, LV_PART_CURSOR);
+        lv_obj_set_style_text_font(fw.spinbox[i], &SourceHanSansAscii_Bold_30, 0);
+    }
 
     setLabelText(fw.name);
 
-    fw.fwi.getSpinbox = getSpinbox;
+    fw.fwi.selectSpinbox = selectSpinbox;
     fw.fwi.spinboxCheckable = spinboxCheckable;
     fw.fwi.spinboxSelectLeft = spinboxSelectLeft;
     fw.fwi.spinboxSelectRight = spinboxSelectRight;

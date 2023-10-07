@@ -5,12 +5,12 @@
 #include "../../../../LVGL.Simulator/lvgl/lvgl.h"
 
 typedef struct IFirstWindow {
-    lv_obj_t* (*getSpinbox)();
-    void (*spinboxCheckable)(lv_obj_t* spinbox, checkable_t checkable);
-    void (*spinboxSelectLeft)(lv_obj_t* spinbox);
-    void (*spinboxSelectRight)(lv_obj_t* spinbox);
-    void (*spinboxSelectUp)(lv_obj_t* spinbox);
-    void (*spinboxSelectDown)(lv_obj_t* spinbox);
+    void (*selectSpinbox)(channel_t channel);
+    void (*spinboxCheckable)(checkable_t checkable);
+    void (*spinboxSelectLeft)();
+    void (*spinboxSelectRight)();
+    void (*spinboxSelectUp)();
+    void (*spinboxSelectDown)();
     void (*setLabelText)(const char* text);
 } first_window_i;
 
