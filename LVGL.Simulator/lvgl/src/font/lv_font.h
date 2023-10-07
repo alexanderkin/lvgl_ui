@@ -132,6 +132,11 @@ static inline lv_coord_t lv_font_get_line_height(const lv_font_t * font_p)
 
 #define LV_FONT_DECLARE(font_name) extern const lv_font_t font_name;
 
+LV_FONT_DECLARE(SourceHanSansCN_Bold_12);
+LV_FONT_DECLARE(SourceHanSansCN_Bold_16);
+LV_FONT_DECLARE(SourceHanSansCN_Bold_20);
+LV_FONT_DECLARE(SourceHanSansAscii_Bold_30);
+
 #if LV_FONT_MONTSERRAT_8
 LV_FONT_DECLARE(lv_font_montserrat_8)
 #endif

@@ -57,6 +57,7 @@ void initFirstWindow(lv_obj_t* parent) {
     fw.label = lv_label_create(fw.container);
     lv_obj_set_size(fw.label, 750, 100);
     lv_obj_set_pos(fw.label, 0, 0);
+    lv_obj_set_style_text_font(fw.label, &SourceHanSansCN_Bold_20, 0);
 
     fw.spinbox = lv_spinbox_create(fw.container);
     lv_spinbox_set_range(fw.spinbox, -1000, 25000);
@@ -66,6 +67,7 @@ void initFirstWindow(lv_obj_t* parent) {
     lv_obj_set_pos(fw.spinbox, 0, 100);
     lv_spinbox_set_range(fw.spinbox, 0, 100000);
     lv_spinbox_set_digit_format(fw.spinbox, 5, 2);
+    lv_obj_set_style_text_font(fw.spinbox, &SourceHanSansAscii_Bold_30, 0);
 
     setLabelText(fw.name);
 

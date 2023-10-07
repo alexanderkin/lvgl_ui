@@ -2191,6 +2191,18 @@
     <ClCompile Include="..\Application\example\second\model\SecondModel.c">
       <Filter>Application\example\second\model</Filter>
     </ClCompile>
+    <ClCompile Include="..\Application\fonts\SourceHanSansCN_Bold_12.c">
+      <Filter>Application\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\fonts\SourceHanSansCN_Bold_16.c">
+      <Filter>Application\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\fonts\SourceHanSansCN_Bold_20.c">
+      <Filter>Application\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Application\fonts\SourceHanSansAscii_Bold_30.c">
+      <Filter>Application\fonts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />
@@ -7163,6 +7175,9 @@
     </Filter>
     <Filter Include="Application\example\second\model">
       <UniqueIdentifier>{c1b53149-e6c7-4dfb-943d-a80217fa26e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\fonts">
+      <UniqueIdentifier>{a7be3fa1-0a9c-4323-9c46-1b018f045d2f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

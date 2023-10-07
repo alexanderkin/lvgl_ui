@@ -7,7 +7,7 @@ static models_manager_t mmt;
 static void readTable() {
     FILE* fp = fopen("table.bin", "rb");
     if (fp == NULL) {
-        printf("table file not found\n");
+        printf("table file not found!, use default data.\n");
         return;
     }
     for (int i = 0; i < EndModel; i++) {
