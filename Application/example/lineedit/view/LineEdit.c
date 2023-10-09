@@ -24,6 +24,9 @@ static void addChar(const char c) {
             return;
         }
         le.hasDot = ON;
+        if (strlen(lv_textarea_get_text(le.input_area)) == 0) {
+            lv_textarea_add_char(le.input_area, '0');
+        }
     }
     lv_textarea_add_char(le.input_area, c);
 }

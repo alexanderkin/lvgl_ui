@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "./LineEditPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
@@ -30,12 +31,19 @@ static void handleKeyEvent(key_event_t* event) {
         break;
     case KeyEnter: {
         getWindowsManagerInterface()->hidePopupWindow(LineEditWindow);
+        const char* value = lep.popupInterface->getCurrentInput();
+        if (strlen(value) == 0) {
+            getEventsManagerInterface()->postEvent(&event->ievent);
+            //字符串指针，用完之后在clear
+            lep.popupInterface->clearCurrentInput();
+            return;
+        }
         line_edit_change_event_t lece = {
             .ievent = {
                 .event_type = ValueChangeEvent,
                 .destination = EndWindow,
             },
-            .value = lep.popupInterface->getCurrentInput(),
+            .value = value,
         };
         getEventsManagerInterface()->postEvent(&lece.ievent);
         //字符串指针，用完之后在clear
