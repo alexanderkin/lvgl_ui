@@ -2,6 +2,7 @@
 #include <string.h>
 #include "./LineEdit.h"
 #include "../../../generic/macro.h"
+#include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
 static line_edit_t le;
@@ -16,6 +17,8 @@ static lv_obj_t* getContainer() {
 
 static void onShow() {
     lv_obj_add_state(le.input_area, LV_STATE_FOCUSED);
+    lv_timer_reset(le.timer);
+    lv_timer_resume(le.timer);
 }
 
 static void addChar(const char c) {
@@ -59,6 +62,24 @@ static void clearCurrentInput() {
 
 static void* getWindowInterface() {
     return &le.lei;
+}
+
+static void resetTimer() {
+    lv_timer_reset(le.timer);
+}
+
+static void timerHandler(lv_timer_t* timer) {
+    getWindowsManagerInterface()->hidePopupWindow(LineEditWindow);
+    lv_timer_pause(le.timer);
+    clearCurrentInput();
+    key_event_t event = {
+        .ievent = {
+            .event_type = KeyEvent,
+            .destination = EndWindow,
+        },
+        .key_id = KeyEnter,
+    };
+    getEventsManagerInterface()->postEvent(&event.ievent);
 }
 
 void initLineEdit(lv_obj_t* parent) {
@@ -137,12 +158,16 @@ void initLineEdit(lv_obj_t* parent) {
     lv_textarea_set_accepted_chars(le.input_area, "0123456789.");
     lv_obj_set_grid_cell(le.input_area, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 1, 1);
 
+    le.timer = lv_timer_create(timerHandler, 5000, NULL);
+    lv_timer_pause(le.timer);
+
     le.lei.addChar = addChar;
     le.lei.deleteChar = deleteChar;
     le.lei.selectLeft = selectLeft;
     le.lei.selectRight = selectRight;
     le.lei.getCurrentInput = getCurrentInput;
     le.lei.clearCurrentInput = clearCurrentInput;
+    le.lei.resetTimer = resetTimer;
 
     le.controller.visable = inVisable;
     le.controller.getContainer = getContainer;

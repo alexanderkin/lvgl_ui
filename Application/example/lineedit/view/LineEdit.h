@@ -17,6 +17,7 @@ typedef struct LineEdit {
     lv_style_t line_style;
     lv_obj_t* input_area;
     lv_style_t input_style;
+    lv_timer_t* timer;
     char* name;
     on_off_t hasDot;
     line_edit_i lei;

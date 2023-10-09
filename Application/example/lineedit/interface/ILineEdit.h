@@ -10,6 +10,7 @@ typedef struct ILineEdit {
     void (*selectRight)();
     const char* (*getCurrentInput)();
     void (*clearCurrentInput)();
+    void (*resetTimer)();
 } line_edit_i;
 
 #endif // ILINEEDIT_H

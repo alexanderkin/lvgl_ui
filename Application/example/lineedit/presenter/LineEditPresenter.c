@@ -8,7 +8,32 @@
 
 static line_edit_presenter_t lep;
 
+static void handleTimerStatus(key_event_t* event) {
+    switch (event->key_id)
+    {
+    case KeyNum0:
+    case KeyNum1:
+    case KeyNum2:
+    case KeyNum3:
+    case KeyNum4:
+    case KeyNum5:
+    case KeyNum6:
+    case KeyNum7:
+    case KeyNum8:
+    case KeyNum9:
+    case KeyLeft:
+    case KeyRight:
+    case KeyDot:
+    case KeyBackspace:
+        lep.popupInterface->resetTimer();
+        break;
+    default:
+        break;
+    }
+}
+
 static void handleKeyEvent(key_event_t* event) {
+    handleTimerStatus(event);
     switch (event->key_id)
     {
     case KeyNum0:
