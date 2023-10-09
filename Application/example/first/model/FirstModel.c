@@ -5,12 +5,12 @@
 
 first_model_t fm;
 
-static void setValue(uint64_t v) {
-    fm.data.value = v;
+static void setValue(channel_t channel, uint64_t v) {
+    fm.data[channel].value = v;
 }
 
-static uint64_t getValue() {
-    return fm.data.value;
+static uint64_t getValue(channel_t channel) {
+    return fm.data[channel].value;
 }
 
 static void* getModelInterface() {
@@ -18,18 +18,20 @@ static void* getModelInterface() {
 }
 
 static void reset() {
-    fm.data.value = 0;
+    for (uint8_t i = 0; i < EndChannel; i++) {
+        fm.data[i].value = 0;
+    }
 }
 
 static void readData(FILE* fp) {
     if (fp != NULL) {
-        fread(&fm.data, 1, sizeof(first_model_data_t), fp);
+        fread(&fm.data, sizeof(first_model_data_t), EndChannel, fp);
     }
 }
 
 static void saveData(FILE* fp) {
     if (fp != NULL) {
-        fwrite(&fm.data, sizeof(first_model_data_t), 1, fp);
+        fwrite(&fm.data, sizeof(first_model_data_t), EndChannel, fp);
     }
 }
 

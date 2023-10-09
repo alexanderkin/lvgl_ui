@@ -9,11 +9,6 @@ typedef enum Channel {
     EndChannel,
 } channel_t;
 
-typedef enum BOOLEAN {
-    TRUE,
-    FALSE,
-} boolean_t;
-
 typedef enum ON_OFF {
     ON,
     OFF,

@@ -1,20 +1,21 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "./StringTools.h"
 #include "../generic/enum.h"
 
 uint64_t getValueFromLineEditString(const char* src) {
     char temp[256] = { 0 };
-    boolean_t after_dot = FALSE;
+    bool after_dot = false;
     uint8_t length = (uint8_t)strlen(src);
     uint8_t temp_length = 0, decimal_count = 0;
     for (uint8_t i = 0; i < length; i++) {
-        if (src[i] == '.' && after_dot == FALSE) {
-            after_dot = TRUE;
+        if (src[i] == '.' && !after_dot) {
+            after_dot = true;
             continue;
         }
-        if (after_dot == TRUE) {
+        if (after_dot) {
             decimal_count++;
         }
         temp[temp_length] = src[i];
@@ -23,7 +24,7 @@ uint64_t getValueFromLineEditString(const char* src) {
         }
         temp_length++;
     }
-    if (after_dot == FALSE) {
+    if (!after_dot) {
         sprintf(temp, "%s000", temp);
         return atoll(temp);
     }

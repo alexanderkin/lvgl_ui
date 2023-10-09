@@ -14,35 +14,45 @@
 #include "./manager/EventsManager.h"
 #include "./manager/WindowsManager.h"
 
+/*******************************
+* 初始化Application顺序：
+* 1、获取全局窗口
+* 2、初始化各个管理器
+* 3、初始化各个Model
+* 4、读Table
+* 5、初始化各个View
+* 6、初始化各个Presenter
+********************************/
 void initMainApplication(void) {
     lv_obj_t* screen = lv_scr_act();
+
     initModelsManager();
     initEventsManager();
     initWindowsManager();
 
     initFirstModel();
+    initSecondModel();
+
+    getModelsManagerInterface()->readTable();
+
     initFirstWindow(screen);
+    initSecondWindow(screen);
+    initThirdWindow(screen);
+    initLineEdit(screen);
+    initKeyBoard(screen);
+
     initFirstPresenter(
         getModelsManagerInterface()->getModelInterface(FirstModel), 
         getWindowsManagerInterface()->getWindowInterface(FirstWindow)
     );
-
-    initSecondModel();
-    initSecondWindow(screen);
     initSecondPresenter(
         getModelsManagerInterface()->getModelInterface(SecondModel),
         getWindowsManagerInterface()->getWindowInterface(SecondWindow)
     );
-
-    initThirdWindow(screen);
     initThirdPresenter(getWindowsManagerInterface()->getWindowInterface(ThirdWindow));
-    
-    initLineEdit(screen);
+
     initLineEditPresenter(getWindowsManagerInterface()->getPopupWindowInterface(LineEditWindow));
     
-    initKeyBoard(screen);
-    
-    getModelsManagerInterface()->readTable();
 }
 
 void saveTables() {

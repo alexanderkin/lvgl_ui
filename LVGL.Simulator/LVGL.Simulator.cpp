@@ -75,6 +75,6 @@ int main()
         Sleep(1);
         count++;
     }
-
+    saveTables();
     return 0;
 }

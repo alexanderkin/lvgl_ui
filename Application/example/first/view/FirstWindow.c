@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <stdbool.h>
 #include "./FirstWindow.h"
 #include "../../../fonts/fonts.h"
 #include "../../../generic/macro.h"
@@ -34,7 +35,11 @@ static void spinboxCheckable(checkable_t checkable) {
     }
 }
 
-static void selectSpinbox(channel_t channel) {
+static void selectSpinbox(channel_t channel, bool view) {
+    if (!view) {
+        fw.activedSpinbox = fw.spinbox[channel];
+        return;
+    }
     if (fw.activedSpinbox != NULL) {
         spinboxCheckable(UnCheck);
     }
@@ -67,11 +72,8 @@ static void spinboxSetValue(uint64_t value) {
     lv_spinbox_set_value(fw.activedSpinbox, value);
 }
 
-static boolean_t allowKeyBoardInput() {
-    if (fw.activedSpinbox == NULL) {
-        return FALSE;
-    }
-    return TRUE;
+static bool allowKeyBoardInput() {
+    return fw.activedSpinbox != NULL;
 }
 
 static void setLabelText(const char* text) {

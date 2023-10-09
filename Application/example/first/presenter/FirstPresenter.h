@@ -6,7 +6,7 @@
 #include "../../../interface/IEventController.h"
 
 typedef struct FirstPresenter {
-    
+    channel_t ch;
     event_controller_i controller;
     first_model_i* modelInterface;
     first_window_i* windowInterface;

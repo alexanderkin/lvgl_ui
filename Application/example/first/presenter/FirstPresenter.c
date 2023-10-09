@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <stdbool.h>
 #include "./FirstPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
@@ -50,19 +51,23 @@ static void handleKeyEvent(key_event_t* event) {
         break;
     case KeySelect1:
         fp.windowInterface->setLabelText("First KeySelect1");
-        fp.windowInterface->selectSpinbox(CH1);
+        fp.windowInterface->selectSpinbox(CH1, true);
+        fp.ch = CH1;
         break;
     case KeySelect2:
         fp.windowInterface->setLabelText("First KeySelect2");
-        fp.windowInterface->selectSpinbox(CH2);
+        fp.windowInterface->selectSpinbox(CH2, true);
+        fp.ch = CH2;
         break;
     case KeySelect3:
         fp.windowInterface->setLabelText("First KeySelect3");
-        fp.windowInterface->selectSpinbox(CH3);
+        fp.windowInterface->selectSpinbox(CH3, true);
+        fp.ch = CH3;
         break;
     case KeySelect4:
         fp.windowInterface->setLabelText("First KeySelect4");
-        fp.windowInterface->selectSpinbox(CH4);
+        fp.windowInterface->selectSpinbox(CH4, true);
+        fp.ch = CH4;
         break;
     case KeyNum0:
     case KeyNum1:
@@ -74,7 +79,7 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyNum7:
     case KeyNum8:
     case KeyNum9:
-        if (fp.windowInterface->allowKeyBoardInput() == FALSE) return;
+        if (!fp.windowInterface->allowKeyBoardInput()) return;
         getWindowsManagerInterface()->showPopupWindow(LineEditWindow);
         getEventsManagerInterface()->postEvent(&(event->ievent));
         break;
@@ -96,8 +101,8 @@ static void handleKeyEvent(key_event_t* event) {
 }
 
 static void handleLineEditChangeEvent(line_edit_change_event_t* event) {
-    fp.modelInterface->setValue(getValueFromLineEditString(event->value));
-    fp.windowInterface->spinboxSetValue(fp.modelInterface->getValue());
+    fp.modelInterface->setValue(fp.ch, getValueFromLineEditString(event->value));
+    fp.windowInterface->spinboxSetValue(fp.modelInterface->getValue(fp.ch));
 }
 
 static void handleEvent(event_type_i* ievent) {
@@ -115,9 +120,18 @@ static void handleEvent(event_type_i* ievent) {
     }
 }
 
+static void initValueFromModel() {
+    for (uint8_t i = 0; i < EndChannel; i++) {
+        fp.windowInterface->selectSpinbox(i, false);
+        fp.windowInterface->spinboxSetValue(fp.modelInterface->getValue(i));
+        fp.windowInterface->spinboxCheckable(UnCheck);
+    }
+}
+
 void initFirstPresenter(first_model_i* modelInterface, first_window_i* windowInterface) {
     fp.modelInterface = modelInterface;
     fp.windowInterface = windowInterface;
     fp.controller.handleEvent = handleEvent;
+    initValueFromModel();
     getEventsManagerInterface()->registerEventHandler(&fp.controller, FirstWindow);
 }
