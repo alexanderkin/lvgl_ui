@@ -45,6 +45,7 @@ static void deleteChar() {
 
 static void selectLeft() {
     lv_textarea_cursor_left(le.input_area);
+    printf("anim time = %d\n", lv_obj_get_style_anim_time(le.input_area, LV_PART_CURSOR));
 }
 
 static void selectRight() {
@@ -156,6 +157,8 @@ void initLineEdit(lv_obj_t* parent) {
     lv_textarea_set_cursor_click_pos(le.input_area, false);
     lv_textarea_set_align(le.input_area, LV_TEXT_ALIGN_RIGHT);
     lv_textarea_set_accepted_chars(le.input_area, "0123456789.");
+    lv_obj_set_style_anim_time(le.input_area, 500, LV_TEXTAREA_PART_CURSOR);
+    lv_obj_set_style_border_color(le.input_area, lv_color_white(), LV_TEXTAREA_PART_CURSOR);
     lv_obj_set_grid_cell(le.input_area, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 1, 1);
 
     le.timer = lv_timer_create(timerHandler, 5000, NULL);
