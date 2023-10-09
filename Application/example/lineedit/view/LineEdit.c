@@ -5,6 +5,9 @@
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
+#define LineEditWidth 240
+#define LineEditHeigh 80
+
 static line_edit_t le;
 
 static const char* getWindowName() {
@@ -117,17 +120,19 @@ void initLineEdit(lv_obj_t* parent) {
     le.hasDot = OFF;
 
     le.container = lv_obj_create(parent);
+    lv_obj_remove_style_all(le.container);
     lv_obj_set_size(le.container, WINDOWS_WIDTH, WINDOWS_HEIGH);
     lv_obj_set_pos(le.container, 0, 0);
     lv_obj_add_style(le.container, &le.container_style, 0);
 
     le.area = lv_obj_create(le.container);
-    lv_obj_set_size(le.area, 300, 100);
-    lv_obj_set_pos(le.area, 250, 190);
+    lv_obj_remove_style_all(le.area);
+    lv_obj_set_size(le.area, LineEditWidth, LineEditHeigh);
+    lv_obj_set_pos(le.area, (WINDOWS_WIDTH - LineEditWidth) / 2, (WINDOWS_HEIGH - LineEditHeigh) / 2);
     lv_obj_add_style(le.area, &le.area_style, 0);
 
-    static lv_coord_t col_dsc[] = {300, LV_GRID_TEMPLATE_LAST};
-    static lv_coord_t row_dsc[] = {50, 50, LV_GRID_TEMPLATE_LAST};
+    static lv_coord_t col_dsc[] = {LineEditWidth, LV_GRID_TEMPLATE_LAST};
+    static lv_coord_t row_dsc[] = {LineEditHeigh / 2, LineEditHeigh / 2, LV_GRID_TEMPLATE_LAST};
     lv_obj_set_style_grid_column_dsc_array(le.area, col_dsc, 0);
     lv_obj_set_style_grid_row_dsc_array(le.area, row_dsc, 0);
     lv_obj_set_style_pad_all(le.area, 0, 0);
@@ -136,20 +141,23 @@ void initLineEdit(lv_obj_t* parent) {
 
     le.title = lv_label_create(le.area);
     lv_label_set_text(le.title, "Set Value:");
-    lv_obj_set_size(le.title, 298, 40);
+    lv_obj_set_size(le.title, LineEditWidth, 40);
     lv_obj_add_style(le.title, &le.title_style, 0);
+    lv_obj_set_style_text_font(le.title, &SourceHanSansCN_Bold_20, 0);
+    lv_obj_set_style_pad_top(le.title, 8, 0);
+    lv_obj_set_style_pad_left(le.title, 8, 0);
     lv_obj_set_grid_cell(le.title, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 0, 1);
 
     le.line_points[0].x = 4;
-    le.line_points[0].y = 50;
-    le.line_points[1].x = 296;
-    le.line_points[1].y = 50;
+    le.line_points[0].y = LineEditHeigh / 2;
+    le.line_points[1].x = LineEditWidth - 4;
+    le.line_points[1].y = LineEditHeigh / 2;
     le.line = lv_line_create(le.area);
     lv_line_set_points(le.line, le.line_points, 2);
     lv_obj_add_style(le.line, &le.line_style, 0);
 
     le.input_area = lv_textarea_create(le.area);
-    lv_obj_set_size(le.input_area, 298, 50);
+    lv_obj_set_size(le.input_area, LineEditWidth, 40);
     lv_obj_add_style(le.input_area, &le.input_style, 0);
     lv_textarea_set_one_line(le.input_area, true);
     lv_textarea_set_max_length(le.input_area, 12);
@@ -157,6 +165,7 @@ void initLineEdit(lv_obj_t* parent) {
     lv_textarea_set_cursor_click_pos(le.input_area, false);
     lv_textarea_set_align(le.input_area, LV_TEXT_ALIGN_RIGHT);
     lv_textarea_set_accepted_chars(le.input_area, "0123456789.");
+    lv_obj_set_style_text_font(le.input_area, &SourceHanSansCN_Bold_20, 0);
     lv_obj_set_style_anim_time(le.input_area, 500, LV_TEXTAREA_PART_CURSOR);
     lv_obj_set_style_border_color(le.input_area, lv_color_white(), LV_TEXTAREA_PART_CURSOR);
     lv_obj_set_grid_cell(le.input_area, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 1, 1);

@@ -763,7 +763,7 @@
     <ClCompile Include="..\Application\example\second\view\SecondWindow.c" />
     <ClCompile Include="..\Application\example\third\presenter\ThirdPresenter.c" />
     <ClCompile Include="..\Application\example\third\view\ThirdWindow.c" />
-    <ClCompile Include="..\Application\fonts\SourceHanSansAscii_Bold_30.c" />
+    <ClCompile Include="..\Application\fonts\SourceHanSansAscii_Bold_24.c" />
     <ClCompile Include="..\Application\fonts\SourceHanSansCN_Bold_12.c" />
     <ClCompile Include="..\Application\fonts\SourceHanSansCN_Bold_16.c" />
     <ClCompile Include="..\Application\fonts\SourceHanSansCN_Bold_20.c" />

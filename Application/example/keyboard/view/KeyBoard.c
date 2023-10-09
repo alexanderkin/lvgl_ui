@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include "./KeyBoard.h"
+#include "../../../fonts/fonts.h"
+#include "../../../generic/macro.h"
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
-#define KeyBoardWidth 800
+#define KeyBoardWidth WINDOWS_WIDTH
 #define KeyBoardHeight 200
 
 key_board_t kb;
@@ -89,20 +91,31 @@ void initKeyBoard(lv_obj_t* parent) {
     kb.name = "KeyBoard";
 
     kb.container = lv_obj_create(parent);
+    lv_obj_remove_style_all(kb.container);
     lv_obj_add_style(kb.container, &kb.style, 0);
     lv_obj_set_size(kb.container, KeyBoardWidth, KeyBoardHeight);
-    lv_obj_set_pos(kb.container, 0, 480);
+    lv_obj_set_pos(kb.container, 0, 272);
 
     kb.special_key_matrix = lv_btnmatrix_create(kb.container);
-    lv_obj_set_size(kb.special_key_matrix, 500, KeyBoardHeight - 1);
+    lv_obj_set_size(kb.special_key_matrix, 288, KeyBoardHeight - 1);
     lv_obj_set_pos(kb.special_key_matrix, 0, 1);
+    lv_obj_set_style_pad_all(kb.special_key_matrix, 2, 0);
+    lv_obj_set_style_pad_top(kb.special_key_matrix, 5, 0);
+    lv_obj_set_style_pad_left(kb.special_key_matrix, 6, 0);
+    lv_obj_set_style_pad_row(kb.special_key_matrix, 5, 0);
+    lv_obj_set_style_pad_column(kb.special_key_matrix, 2, 0);
     lv_btnmatrix_set_map(kb.special_key_matrix, special_key_map);
     lv_btnmatrix_set_one_checked(kb.special_key_matrix, true);
     lv_obj_add_event_cb(kb.special_key_matrix, special_event_handler, LV_EVENT_CLICKED, NULL);
 
     kb.generic_key_matrix = lv_btnmatrix_create(kb.container);
-    lv_obj_set_size(kb.generic_key_matrix, 300, KeyBoardHeight - 1);
-    lv_obj_set_pos(kb.generic_key_matrix, 500, 1);
+    lv_obj_set_size(kb.generic_key_matrix, 192, KeyBoardHeight - 1);
+    lv_obj_set_pos(kb.generic_key_matrix, 288, 1);
+    lv_obj_set_style_pad_all(kb.generic_key_matrix, 2, 0);
+    lv_obj_set_style_pad_top(kb.generic_key_matrix, 5, 0);
+    lv_obj_set_style_pad_left(kb.generic_key_matrix, 6, 0);
+    lv_obj_set_style_pad_row(kb.generic_key_matrix, 5, 0);
+    lv_obj_set_style_pad_column(kb.generic_key_matrix, 2, 0);
     lv_btnmatrix_set_map(kb.generic_key_matrix, generic_key_map);
     lv_btnmatrix_set_one_checked(kb.generic_key_matrix, true);
     lv_obj_add_event_cb(kb.generic_key_matrix, generic_event_handler, LV_EVENT_CLICKED, NULL);

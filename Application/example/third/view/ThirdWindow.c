@@ -30,6 +30,7 @@ void initThirdWindow(lv_obj_t* parent) {
     tw.name = "ThirdWindow";
 
     tw.container = lv_obj_create(parent);
+    lv_obj_remove_style_all(tw.container);
     lv_obj_set_size(tw.container, WINDOWS_WIDTH, WINDOWS_HEIGH);
     lv_obj_set_pos(tw.container, 0, 0);
     lv_obj_add_style(tw.container, &tw.style, 0);

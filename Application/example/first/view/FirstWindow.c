@@ -100,22 +100,21 @@ void initFirstWindow(lv_obj_t* parent) {
     
     fw.label = lv_label_create(fw.container);
     lv_obj_remove_style_all(fw.label);
-    lv_obj_set_size(fw.label, 750, 100);
+    lv_obj_set_size(fw.label, 450, 30);
     lv_obj_set_pos(fw.label, 0, 0);
-    lv_obj_set_style_text_font(fw.label, &SourceHanSansCN_Bold_20, 0);
 
     for (int i = 0; i < EndChannel; i++) {
         fw.spinbox[i] = lv_spinbox_create(fw.container);
         lv_obj_set_width(fw.spinbox[i], 100);
-        lv_obj_set_size(fw.spinbox[i], 750, 80);
-        lv_obj_set_pos(fw.spinbox[i], 0, i * 100 + 50);
+        lv_obj_set_size(fw.spinbox[i], 450, 50);
+        lv_obj_set_pos(fw.spinbox[i], 0, i * 60 + 40);
         lv_spinbox_set_range(fw.spinbox[i], 0, 100000);
         lv_spinbox_set_digit_format(fw.spinbox[i], 5, 2);
         lv_obj_set_style_border_width(fw.spinbox[i], 0, 0);
         lv_obj_set_style_outline_width(fw.spinbox[i], 0, 0);
         lv_obj_set_style_anim_time(fw.spinbox[i], 500, LV_PART_CURSOR);
         lv_obj_set_style_opa(fw.spinbox[i], LV_OPA_TRANSP, LV_PART_CURSOR);
-        lv_obj_set_style_text_font(fw.spinbox[i], &SourceHanSansAscii_Bold_30, 0);
+        lv_obj_set_style_text_font(fw.spinbox[i], &SourceHanSansAscii_Bold_24, 0);
     }
 
     setLabelText(fw.name);

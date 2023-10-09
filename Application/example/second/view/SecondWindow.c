@@ -30,6 +30,7 @@ void initSecondWindow(lv_obj_t* parent) {
     sw.name = "SecondWindow";
 
     sw.container = lv_obj_create(parent);
+    lv_obj_remove_style_all(sw.container);
     lv_obj_set_size(sw.container, WINDOWS_WIDTH, WINDOWS_HEIGH);
     lv_obj_set_pos(sw.container, 0, 0);
     lv_obj_add_style(sw.container, &sw.style, 0);
