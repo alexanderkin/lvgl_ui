@@ -1,4 +1,4 @@
-﻿#ifndef FIRSTWINDOW_H
+#ifndef FIRSTWINDOW_H
 #define FIRSTWINDOW_H
 
 #include "../../../generic/enum.h"

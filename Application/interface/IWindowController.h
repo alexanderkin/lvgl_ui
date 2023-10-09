@@ -1,4 +1,4 @@
-﻿#ifndef IWINDOWCONTROLLER_H
+#ifndef IWINDOWCONTROLLER_H
 #define IWINDOWCONTROLLER_H
 
 #include "../generic/enum.h"

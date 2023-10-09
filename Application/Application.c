@@ -1,4 +1,4 @@
-﻿#include "Application.h"
+#include "Application.h"
 #include "./example/lineedit/presenter/LineEditPresenter.h"
 #include "./example/lineedit/view/LineEdit.h"
 #include "./example/keyboard/view/KeyBoard.h"

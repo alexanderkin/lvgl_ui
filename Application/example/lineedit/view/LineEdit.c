@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include "./LineEdit.h"
 #include "../../../generic/macro.h"

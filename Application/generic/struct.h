@@ -1,4 +1,4 @@
-﻿#ifndef STRUCT_H
+#ifndef STRUCT_H
 #define STRUCT_H
 
 #include <stdint.h>

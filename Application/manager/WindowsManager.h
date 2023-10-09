@@ -1,4 +1,4 @@
-﻿#ifndef WINDOWSMANAGER_H
+#ifndef WINDOWSMANAGER_H
 #define WINDOWSMANAGER_H
 
 #include "../generic/enum.h"

@@ -1,4 +1,4 @@
-﻿#ifndef FIRSTPRESENTER_H
+#ifndef FIRSTPRESENTER_H
 #define FIRSTPRESENTER_H
 
 #include "../interface/IFirstModel.h"

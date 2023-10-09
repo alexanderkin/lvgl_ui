@@ -1,4 +1,4 @@
-﻿#ifndef APPLICATION_H
+#ifndef APPLICATION_H
 #define APPLICATION_H
 
 #include "../LVGL.Simulator/lvgl/lvgl.h"

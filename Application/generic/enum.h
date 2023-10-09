@@ -1,4 +1,4 @@
-﻿#ifndef ENUM_H
+#ifndef ENUM_H
 #define ENUM_H
 
 typedef enum Channel {

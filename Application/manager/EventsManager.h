@@ -1,4 +1,4 @@
-﻿#ifndef EVENTSMANAGER_H
+#ifndef EVENTSMANAGER_H
 #define EVENTSMANAGER_H
 
 #include "../interface/IEventsManager.h"

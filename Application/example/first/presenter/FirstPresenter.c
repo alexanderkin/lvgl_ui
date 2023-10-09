@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include "./FirstPresenter.h"
 #include "../../../generic/enum.h"

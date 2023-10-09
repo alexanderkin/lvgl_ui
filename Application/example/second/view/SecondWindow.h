@@ -1,4 +1,4 @@
-﻿#ifndef SECONDWINDOW_H
+#ifndef SECONDWINDOW_H
 #define SECONDWINDOW_H
 
 #include "../../../generic/enum.h"

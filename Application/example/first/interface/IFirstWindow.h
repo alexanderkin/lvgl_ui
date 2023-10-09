@@ -1,4 +1,4 @@
-﻿#ifndef IFIRSTWINDOW_H
+#ifndef IFIRSTWINDOW_H
 #define IFIRSTWINDOW_H
 
 #include <stdint.h>
