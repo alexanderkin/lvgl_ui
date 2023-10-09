@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "./LineEditPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
-#include "../../../tools/StringTools.h"
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
@@ -31,20 +29,15 @@ static void handleKeyEvent(key_event_t* event) {
         lep.popupInterface->deleteChar();
         break;
     case KeyEnter: {
-        int decimals = 0;
-        char temp[256] = { 0 };
-        const char* text = lep.popupInterface->getCurrentInput();
         getWindowsManagerInterface()->hidePopupWindow(LineEditWindow);
-        decimals = removeDotFromNumString(text, temp);
-        value_change_event_t vce = {
+        line_edit_change_event_t lece = {
             .ievent = {
                 .event_type = ValueChangeEvent,
                 .destination = EndWindow,
             },
-            .value = atoll(temp),
-            .decimals = decimals,
+            .value = lep.popupInterface->getCurrentInput(),
         };
-        getEventsManagerInterface()->postEvent(&vce.ievent);
+        getEventsManagerInterface()->postEvent(&lece.ievent);
         //字符串指针，用完之后在clear
         lep.popupInterface->clearCurrentInput();
         break;

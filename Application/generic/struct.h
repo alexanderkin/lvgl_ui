@@ -16,10 +16,9 @@ typedef struct KeyEvent {
     key_type_t key_id;              //按键id
 } key_event_t;
 
-typedef struct ValueChangeEvent {
+typedef struct LineEditChangeEvent {
     event_type_i ievent;            //通用事件接口
-    uint64_t value;                 //值
-    uint8_t decimals;               //小数个数
-} value_change_event_t;
+    const char* value;              //值
+} line_edit_change_event_t;
 
 #endif // STRUCT_H

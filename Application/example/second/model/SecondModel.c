@@ -4,11 +4,11 @@
 
 second_model_t sm;
 
-static void setValue(float v) {
+static void setValue(uint64_t v) {
     sm.data.value = v;
 }
 
-static float getValue() {
+static uint64_t getValue() {
     return sm.data.value;
 }
 
@@ -24,11 +24,9 @@ static void readData(FILE* fp) {
     if (fp != NULL) {
         fread(&sm.data, 1, sizeof(second_model_data_t), fp);
     }
-    printf("Second Model read value = %f\n", sm.data.value);
 }
 
 static void saveData(FILE* fp) {
-    printf("Second Model save value = %f\n", sm.data.value);
     if (fp != NULL) {
         fwrite(&sm.data, sizeof(second_model_data_t), 1, fp);
     }

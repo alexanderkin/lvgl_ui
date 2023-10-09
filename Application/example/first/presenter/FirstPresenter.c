@@ -1,9 +1,8 @@
 ﻿#include <stdio.h>
-#include <math.h>
-#include <stdint.h>
 #include "./FirstPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
+#include "../../../tools/StringTools.h"
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
@@ -16,6 +15,18 @@ static void handleKeyChangeFocus(key_type_t id) {
     case KeySelect2:
     case KeySelect3:
     case KeySelect4:
+    case KeyNum0:
+    case KeyNum1:
+    case KeyNum2:
+    case KeyNum3:
+    case KeyNum4:
+    case KeyNum5:
+    case KeyNum6:
+    case KeyNum7:
+    case KeyNum8:
+    case KeyNum9:
+    case KeyDot:
+    case KeyBackspace:
     case KeyLeft:
     case KeyRight:
     case KeyUp:
@@ -63,6 +74,7 @@ static void handleKeyEvent(key_event_t* event) {
     case KeyNum7:
     case KeyNum8:
     case KeyNum9:
+        if (fp.windowInterface->allowKeyBoardInput() == FALSE) return;
         getWindowsManagerInterface()->showPopupWindow(LineEditWindow);
         getEventsManagerInterface()->postEvent(&(event->ievent));
         break;
@@ -83,11 +95,9 @@ static void handleKeyEvent(key_event_t* event) {
     }
 }
 
-static void handleValueChangeEvent(value_change_event_t* event) {
-    double v = (double)event->value / pow(10, event->decimals);
-    printf("First value = %lld, decimals = %d, result = %f\n", event->value, event->decimals, v);
-    fp.modelInterface->setValue((uint64_t)v);
-    printf("Model value = %lld\n", fp.modelInterface->getValue());
+static void handleLineEditChangeEvent(line_edit_change_event_t* event) {
+    fp.modelInterface->setValue(getValueFromLineEditString(event->value));
+    fp.windowInterface->spinboxSetValue(fp.modelInterface->getValue());
 }
 
 static void handleEvent(event_type_i* ievent) {
@@ -97,7 +107,8 @@ static void handleEvent(event_type_i* ievent) {
         handleKeyEvent((key_event_t*)ievent);
         break;
     case ValueChangeEvent:
-        handleValueChangeEvent((value_change_event_t*)ievent);
+        handleLineEditChangeEvent((line_edit_change_event_t*)ievent);
+        fp.windowInterface->spinboxCheckable(UnCheck);
         break;
     default:
         break;

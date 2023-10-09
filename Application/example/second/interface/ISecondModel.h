@@ -5,8 +5,8 @@
 
 typedef struct ISecondModel {
     void (*reset)();
-    void (*setValue)(float v);
-    float (*getValue)();
+    void (*setValue)(uint64_t v);
+    uint64_t (*getValue)();
 } second_model_i;
 
 #endif // ISECONDMODEL_H

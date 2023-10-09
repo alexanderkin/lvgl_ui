@@ -5,7 +5,7 @@
 #include "../../../interface/IModelController.h"
 
 typedef struct SecondModelData {
-    float value;
+    uint64_t value;
 } second_model_data_t;
 
 typedef struct SecondModel {

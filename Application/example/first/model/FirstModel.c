@@ -25,11 +25,9 @@ static void readData(FILE* fp) {
     if (fp != NULL) {
         fread(&fm.data, 1, sizeof(first_model_data_t), fp);
     }
-    printf("First Model read value = %lld\n", fm.data.value);
 }
 
 static void saveData(FILE* fp) {
-    printf("First Model save value = %lld\n", fm.data.value);
     if (fp != NULL) {
         fwrite(&fm.data, sizeof(first_model_data_t), 1, fp);
     }

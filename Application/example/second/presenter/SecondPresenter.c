@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <math.h>
 #include "./SecondPresenter.h"
 #include "../../../generic/enum.h"
 #include "../../../generic/struct.h"
+#include "../../../tools/StringTools.h"
 #include "../../../manager/EventsManager.h"
 #include "../../../manager/WindowsManager.h"
 
@@ -51,11 +51,8 @@ static void handleKeyEvent(key_event_t* event) {
     }
 }
 
-static void handleValueChangeEvent(value_change_event_t* event) {
-    float v = (float)(event->value / pow(10, event->decimals));
-    printf("First value = %lld, decimals = %d, result = %f\n", event->value, event->decimals, v);
-    sp.modelInterface->setValue(v);
-    printf("Model value = %f\n", sp.modelInterface->getValue());
+static void handleLineEditChangeEvent(line_edit_change_event_t* event) {
+    sp.modelInterface->setValue(getValueFromLineEditString(event->value));
 }
 
 static void handleEvent(event_type_i* ievent) {
@@ -65,7 +62,7 @@ static void handleEvent(event_type_i* ievent) {
         handleKeyEvent((key_event_t*)ievent);
         break;
     case ValueChangeEvent:
-        handleValueChangeEvent((value_change_event_t*)ievent);
+        handleLineEditChangeEvent((line_edit_change_event_t*)ievent);
         break;
     default:
         break;

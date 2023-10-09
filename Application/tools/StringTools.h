@@ -1,7 +1,9 @@
 #ifndef STRINGTOOLS_H
 #define STRINGTOOLS_H
 
-//移除数字字符串中的'.'，并返回小数个数
-int removeDotFromNumString(const char* src, char* dsc);
+#include "../generic/struct.h"
+
+//移除数字字符串中的'.'，并返回保留3位小数的整数
+uint64_t getValueFromLineEditString(const char* src);
 
 #endif // STRINGTOOLS_H
