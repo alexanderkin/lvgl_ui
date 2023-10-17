@@ -5,5 +5,3 @@ InlayHints:
   Enabled: No
   ParameterNames: No
   DeducedTypes: No
-CompileFlags:
-  Add: [-DUNICODE]
