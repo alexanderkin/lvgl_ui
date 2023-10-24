@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
+# 指定编译器
+set(CMAKE_C_COMPILER gcc)
+set(CMAKE_CXX_COMPILER g++)
 # 工程名
 project(ODP)
 # 生成compile_commands.json
